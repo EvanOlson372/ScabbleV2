@@ -1,0 +1,6 @@
+[3/3]
+- All 4 of us met up
+- Created test packages with comments for functionality requirements
+- Created BoardSpace class
+- Updated design document
+- Made good progress in code writing, collectively brainstorming solutions

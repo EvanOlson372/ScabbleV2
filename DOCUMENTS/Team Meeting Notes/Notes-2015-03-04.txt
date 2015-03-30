@@ -1,0 +1,6 @@
+[3/4]
+- All 4 of us met up again
+- Finished writing all of the tests for stage one
+- Finished writing methods for stage one
+- Everything green barred
+- Finished stage one

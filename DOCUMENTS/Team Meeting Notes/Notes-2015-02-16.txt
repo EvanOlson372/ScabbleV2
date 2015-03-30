@@ -1,0 +1,5 @@
+[2/16]
+- First meeting. 
+- Set up the GIT repository
+- Read over the instructions
+- Exchanged contact information.

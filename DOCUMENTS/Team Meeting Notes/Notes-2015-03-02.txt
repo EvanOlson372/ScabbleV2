@@ -1,0 +1,5 @@
+[3/2]
+- David made the first submission - it worked
+- Made some edits to design document
+- Finished writing Tile class
+- Worked on writing TileRack, Player classes
