@@ -1,3 +1,16 @@
 Wednesday April 1st.
 
-We had some problems getting the Git to commit changes from Savannah's computer.  
+
+GUI
+We had some problems getting the Git to commit changes from Savannah's computer. We decided that we
+are going to base our GUI off of the Tic Tac Toe GUI found under Student -> Working Directory -> 
+WednesdayDemo.  This is a basic grid layout and will give us a great jumping off point.  However,
+we have decided that it might be best to start the GUI sooner than later, however, not until after 
+we have researched the best way to approach it.
+
+DICTIONARY
+We have added a basic dictionary containing only 3 words.  This will give us the ability to test our 
+code but it will keep the tests small and manageable.  THe dictionary will have 1 word per line and 
+the scanner will read the code line by line.  (Hopefully the dictionary that professor Alphonce gives 
+us will have a similar layout.
+------------------------------------------------------------------------------ Savannah & Evan 11AM
