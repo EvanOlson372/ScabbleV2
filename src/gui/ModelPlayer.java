@@ -1,9 +1,9 @@
 package gui;
 
-public class Player {		
+public class ModelPlayer {		
 	private char _mark;
 		
-	public Player(char mark) {
+	public ModelPlayer(char mark) {
 		_mark = mark;
 	}
 		

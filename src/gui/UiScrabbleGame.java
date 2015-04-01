@@ -10,15 +10,16 @@ package gui;
 	import javax.swing.JPanel;
 	import javax.swing.SwingUtilities;
 
-	import gui.IDEASfromTICTACTOE;
+	import gui.ModelTICTACTOE;
+	import code.Scrabble;
 
-	public class ScrabbleGame implements Observer, Runnable {
+	public class UiScrabbleGame implements Observer, Runnable {
 		
-		private IDEASfromTICTACTOE _model;
+		private Scrabble _model;
 		private ArrayList<JButton> _buttons;
 		
-		public ScrabbleGame() {
-			_model = new IDEASfromTICTACTOE();
+		public UiScrabbleGame() {
+			_model = new Scrabble();
 			_model.addObserver(this);
 			_buttons = new ArrayList<JButton>();
 		}
@@ -32,7 +33,7 @@ package gui;
 		}
 		
 		public static void main(String[] args) {
-			SwingUtilities.invokeLater(new ScrabbleGame());
+			SwingUtilities.invokeLater(new UiScrabbleGame());
 		}
 
 		@Override
@@ -43,7 +44,7 @@ package gui;
 			for (int i=0; i<9; i++) {
 				JButton b = new JButton("");
 				p.add(b);
-				b.addActionListener(new ButtonHandler(i, _model));
+				b.addActionListener(new UiButtonHandler(i, _model));
 				_buttons.add(b);
 			}
 			window.add(p);

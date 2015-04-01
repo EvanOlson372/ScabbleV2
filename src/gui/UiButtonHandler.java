@@ -3,15 +3,15 @@ package gui;
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 
-	import gui.IDEASfromTICTACTOE;
+	import gui.ModelTICTACTOE;
 
-	public class ButtonHandler implements ActionListener {
+	public class UiButtonHandler implements ActionListener {
 
-		private IDEASfromTICTACTOE _model;
+		private ModelTICTACTOE _model;
 		private int _row;
 		private int _col;
 
-		public ButtonHandler(int i, IDEASfromTICTACTOE model) {
+		public UiButtonHandler(int i, ModelTICTACTOE model) {
 			_model = model;
 			_row = i/3;
 			_col = i%3;

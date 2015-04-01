@@ -3,15 +3,15 @@ package gui;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class IDEASfromTICTACTOE extends Observable{
-	private Player[][] _board;
-	private ArrayList<Player> _players;
+public class ModelTICTACTOE extends Observable{
+	private ModelPlayer[][] _board;
+	private ArrayList<ModelPlayer> _players;
 
-	public IDEASfromTICTACTOE() {
-		_board = new Player[3][3];
-		_players = new ArrayList<Player>();
-		_players.add(new Player('X'));
-		_players.add(new Player('O'));
+	public ModelTICTACTOE() {
+		_board = new ModelPlayer[3][3];
+		_players = new ArrayList<ModelPlayer>();
+		_players.add(new ModelPlayer('X'));
+		_players.add(new ModelPlayer('O'));
 		}
 		
 	private void switchPlayers() {
@@ -30,7 +30,7 @@ public class IDEASfromTICTACTOE extends Observable{
 		StringBuffer sb = new StringBuffer();
 		for (int i=0; i<_board.length; i++) {
 			for (int j=0; j<_board[i].length; j++) {
-				Player who = _board[i][j];
+				ModelPlayer who = _board[i][j];
 				if (who == null) {
 					sb.append(' ');
 				}
