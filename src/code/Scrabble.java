@@ -1,5 +1,6 @@
 package code;
 
+<<<<<<< HEAD
 
 
 import java.util.ArrayList;
@@ -7,6 +8,12 @@ import java.util.Observable;
 import java.util.Random;
 
 public class Scrabble extends Observable {
+=======
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Scrabble {
+>>>>>>> origin/master
 	
 	/**
 	 * Stores tiles.
@@ -45,6 +52,7 @@ public class Scrabble extends Observable {
 		_players.add(new Player(_inv));
 	}
 
+<<<<<<< HEAD
 	public void mark(int _row, int _col) {
 		// TODO Auto-generated method stub
 		
@@ -52,6 +60,8 @@ public class Scrabble extends Observable {
 
 
 
+=======
+>>>>>>> origin/master
 
 
 }
