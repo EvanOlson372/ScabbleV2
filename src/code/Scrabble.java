@@ -1,9 +1,12 @@
 package code;
 
+
+
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Random;
 
-public class Scrabble {
+public class Scrabble extends Observable {
 	
 	/**
 	 * Stores tiles.
@@ -41,6 +44,13 @@ public class Scrabble {
 	private void addNewPlayer(){
 		_players.add(new Player(_inv));
 	}
+
+	public void mark(int _row, int _col) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 
 
