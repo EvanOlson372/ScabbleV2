@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class DictionaryScanner {
 	
-	public boolean compareWord (String word,String filep){
+	public static boolean compareWord (String word,String filep){
 		ArrayList<String> dictionary  = new ArrayList<String>();
 		boolean there = false;
 		String wordd ="";
@@ -25,10 +25,14 @@ public class DictionaryScanner {
         
         	if( dictionary.contains(word)){
         		  there = true;
+        		  System.out.println("true");
         		}
         	else{
         		 there = false;
+        		 System.out.println("false");
         	}
+        	
+        	
         
         }
         
@@ -40,7 +44,7 @@ public class DictionaryScanner {
 	
 	
 	
-	public String readMe(String filename) {
+	public static String readMe(String filename) {
 		Scanner scan = null;
 		String readfile = "";
 		try {
@@ -58,4 +62,10 @@ public class DictionaryScanner {
 		return readfile;
 	}
 
+
+public static void main (String []args){
+ DictionaryScanner.compareWord( "CAT" ,"main.Dictionary");
+
+	
+}
 }
