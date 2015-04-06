@@ -3,6 +3,7 @@ package code;
 
 
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
@@ -16,6 +17,7 @@ public class Scrabble extends Observable {
 	 * Stores tiles.
 	 */
 	private Inventory _inv;
+	public Color _color;
 	/**
 	 * Stores players.
 	 */
@@ -46,7 +48,7 @@ public class Scrabble extends Observable {
 	 * Adds a new player to the game.
 	 */
 	private void addNewPlayer(){
-		_players.add(new Player(_inv));
+		_players.add(new Player(_inv, _color));
 	}
 
 
