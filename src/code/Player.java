@@ -1,11 +1,14 @@
 package code;
 
+import java.awt.Color;
+
 public class Player {
 
 	/**
 	 * Records the score.
 	 */
 	private int _score;
+	public Color _color;
 	
 	/**
 	 * Allows the Player to access the Tiles on its own TileRack.
@@ -18,10 +21,11 @@ public class Player {
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv){
+	public Player(Inventory inv, Color col){
 		_score = 0;
 		//_inv = inv;
 		_rack = new TileRack(inv);
+		_color = col;
 	}
 	
 	/**
@@ -31,6 +35,9 @@ public class Player {
 	 */
 	public int getScore(){
 		return _score;
+	}
+	public Color getColor(){
+		return _color;
 	}
 
 	/**
