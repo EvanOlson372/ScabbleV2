@@ -10,18 +10,21 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import code.Scrabble;
+import code.Player;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 
 public class ScrabbleUI implements Observable, Runnable {
 	
 	private code.Scrabble _dataStruct;
-	private ArrayList<JButton> _buttons;
+	private ArrayList<JButton> _boardButtons;
+	private ArrayList<JButton> _rackButtons;
 	
 	public ScrabbleUI(){
 		 _dataStruct = new Scrabble();
 	//	 _dataStruct.addObserver((Observer) this);
-		 _buttons = new ArrayList<JButton>();
+		 _boardButtons = new ArrayList<JButton>();
+		 _rackButtons = new ArrayList<JButton>();
 	}
 
 	public static void main(String[] args) {
@@ -31,7 +34,7 @@ public class ScrabbleUI implements Observable, Runnable {
 	public void update(Observable o, Object arg) {
 		String s = _dataStruct.toString();
 		for (int i=0; i<s.length(); i++) {
-			_buttons.get(i).setText(""+s.charAt(i));
+			_boardButtons.get(i).setText(""+s.charAt(i));
 		}
 	}
 	
@@ -44,15 +47,32 @@ public class ScrabbleUI implements Observable, Runnable {
 			JButton b = new JButton("");
 			p.add(b);
 			b.addActionListener(new ButtonHandler(i, _dataStruct));
-			_buttons.add(b);
+			_boardButtons.add(b);
 		}
 		window.add(p);
+		addPlayerPanel(_players.)
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setVisible(true);
 		
+		
+		
 	}
 
+	public void addPlayerPanel(Player p, JFrame frame){
+		JPanel panel = new JPanel();
+		panel.setLayout(new GridLayout(1,12,1,1));
+		for(int i = 0;i<12; i++){
+			JButton b = new JButton("");
+			panel.add(b);
+			b.addActionListener(new ButtonHandler(i, _dataStruct));
+			_rackButtons.add(b);
+		}
+		frame.add(panel);
+		
+	}
+	
+	
 	@Override
 	public void addListener(InvalidationListener arg0) {
 		// TODO Auto-generated method stub

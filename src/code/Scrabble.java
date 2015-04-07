@@ -21,7 +21,7 @@ public class Scrabble extends Observable {
 	/**
 	 * Stores players.
 	 */
-	private ArrayList<Player> _players;
+	public ArrayList<Player> _players;
 	/**
 	 * tile board to be played on
 	 */
@@ -37,19 +37,20 @@ public class Scrabble extends Observable {
 	public Scrabble(){
 		_inv = new Inventory();
 		_board = new Board();
+		_players = new ArrayList();
 		_numberOfPlayers = 4;
 		
 		for (int i = 0; i < _numberOfPlayers; i++){
-			//addNewPlayer();
+			addNewPlayer();
 		}
 	}
 	
 	/**
 	 * Adds a new player to the game.
 	 */
-	//private void addNewPlayer(){
-	//	_players.add(new Player(_inv, _color));
-	//}
+	private void addNewPlayer(){
+		_players.add(new Player(_inv, _color));
+	}
 
 
 	public void mark(int _row, int _col) {

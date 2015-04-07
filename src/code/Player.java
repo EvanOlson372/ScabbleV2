@@ -14,7 +14,7 @@ public class Player {
 	 * Allows the Player to access the Tiles on its own TileRack.
 	 */
 	private TileRack _rack;
-	//private Inventory _inv;
+	private Inventory _inv;
 	
 	/**
 	 * Class constructor.
@@ -23,7 +23,7 @@ public class Player {
 	 */
 	public Player(Inventory inv, Color col){
 		_score = 0;
-		//_inv = inv;
+		_inv = inv;
 		_rack = new TileRack(inv);
 		_color = col;
 	}
