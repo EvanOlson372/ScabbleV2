@@ -1,9 +1,11 @@
 package code.ui;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Observer;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -49,8 +51,10 @@ public class ScrabbleUI implements Observable, Runnable {
 			b.addActionListener(new ButtonHandler(i, _dataStruct));
 			_boardButtons.add(b);
 		}
+
+		
 		window.add(p);
-		addPlayerPanel(_players.)
+		window.add(addPlayerPanel(_dataStruct.getPlayer(1)), BorderLayout.SOUTH);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setVisible(true);
@@ -59,17 +63,17 @@ public class ScrabbleUI implements Observable, Runnable {
 		
 	}
 
-	public void addPlayerPanel(Player p, JFrame frame){
+	
+	public JPanel addPlayerPanel(Player p){
 		JPanel panel = new JPanel();
-		panel.setLayout(new GridLayout(1,12,1,1));
+		panel.setLayout(new BorderLayout());
 		for(int i = 0;i<12; i++){
 			JButton b = new JButton("");
 			panel.add(b);
 			b.addActionListener(new ButtonHandler(i, _dataStruct));
 			_rackButtons.add(b);
 		}
-		frame.add(panel);
-		
+		return panel;
 	}
 	
 	

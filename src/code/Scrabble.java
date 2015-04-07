@@ -51,6 +51,11 @@ public class Scrabble extends Observable {
 	private void addNewPlayer(){
 		_players.add(new Player(_inv, _color));
 	}
+	
+	public Player getPlayer(int i){
+		return _players.get(i);
+	
+	}
 
 
 	public void mark(int _row, int _col) {
