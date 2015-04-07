@@ -20,7 +20,7 @@ public class ScrabbleUI implements Observable, Runnable {
 	
 	public ScrabbleUI(){
 		 _dataStruct = new Scrabble();
-		 _dataStruct.addObserver((Observer) this);
+	//	 _dataStruct.addObserver((Observer) this);
 		 _buttons = new ArrayList<JButton>();
 	}
 

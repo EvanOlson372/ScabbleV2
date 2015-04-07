@@ -8,7 +8,7 @@ public class Player {
 	 * Records the score.
 	 */
 	private int _score;
-	public Color _color;
+	private Color _color;
 	
 	/**
 	 * Allows the Player to access the Tiles on its own TileRack.
@@ -38,6 +38,9 @@ public class Player {
 	}
 	public Color getColor(){
 		return _color;
+	}
+	public void setColor(Color color){
+		_color = color;
 	}
 
 	/**
