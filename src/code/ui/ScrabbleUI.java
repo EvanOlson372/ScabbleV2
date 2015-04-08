@@ -20,7 +20,7 @@ import javafx.beans.Observable;
 
 public class ScrabbleUI implements Observable, Runnable {
 	
-	private code.Scrabble _dataStruct;
+	private static code.Scrabble _dataStruct;
 	private ArrayList<JButton> _boardButtons;
 	private ArrayList<JButton> _rackButtons;
 	
@@ -33,6 +33,7 @@ public class ScrabbleUI implements Observable, Runnable {
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new ScrabbleUI());
+		_dataStruct.addNewPlayer();
 	}
 
 	public void update(Observable o, Object arg) {
@@ -48,18 +49,20 @@ public class ScrabbleUI implements Observable, Runnable {
 		JPanel p = new JPanel();
 		p.setLayout(new GridLayout(20,20, 1, 1));
 		for (int i=0; i<400; i++) {
-			JButton b = new JButton("");
+			JButton b = new JButton("open");
 			b.setPreferredSize(new Dimension(30,30));
-			b.setBackground(Color.RED);
+			b.setForeground(Color.red);
+			b.setBackground(Color.BLACK);
 			b.setOpaque(true);
 			p.add(b);
 			b.addActionListener(new ButtonHandler(i, _dataStruct));
 			_boardButtons.add(b);
 		}
 
-		
-		window.add(p);
-		window.add(addPlayerPanel(_dataStruct.getPlayer(1)), BorderLayout.SOUTH);
+		_dataStruct.addNewPlayer();
+		window.add(p,BorderLayout.NORTH);
+		window.add(addPlayerPanel(_dataStruct.getPlayer(0), Color.BLUE),-1);
+		window.add(addPlayerPanel(_dataStruct.getPlayer(0), Color.RED),-1);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setVisible(true);
@@ -69,11 +72,14 @@ public class ScrabbleUI implements Observable, Runnable {
 	}
 
 	
-	public JPanel addPlayerPanel(Player p){
+	public JPanel addPlayerPanel(Player p, Color c){
 		JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
+		panel.setLayout(new GridLayout(1,12,1,1));
 		for(int i = 0;i<12; i++){
 			JButton b = new JButton("");
+			b.setPreferredSize(new Dimension(30,30));
+			b.setForeground(c);;
+			b.setOpaque(true);
 			panel.add(b);
 			b.addActionListener(new ButtonHandler(i, _dataStruct));
 			_rackButtons.add(b);

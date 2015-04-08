@@ -37,7 +37,7 @@ public class Scrabble extends Observable {
 	public Scrabble(){
 		_inv = new Inventory();
 		_board = new Board();
-		_players = new ArrayList();
+		_players = new ArrayList<Player>();
 		_numberOfPlayers = 4;
 		
 		for (int i = 0; i < _numberOfPlayers; i++){
@@ -48,7 +48,7 @@ public class Scrabble extends Observable {
 	/**
 	 * Adds a new player to the game.
 	 */
-	private void addNewPlayer(){
+	public void addNewPlayer(){
 		_players.add(new Player(_inv, _color));
 	}
 	
@@ -59,7 +59,7 @@ public class Scrabble extends Observable {
 
 
 	public void mark(int _row, int _col) {
-		// TODO Auto-generated method stub
+		//_board[_row][ _col] = 
 		
 	}
 

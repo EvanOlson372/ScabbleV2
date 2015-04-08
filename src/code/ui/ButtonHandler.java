@@ -16,8 +16,8 @@ public class ButtonHandler implements ActionListener {
 
 	public ButtonHandler(int i, Scrabble dataStruct) {
 		_dataStruct = dataStruct;
-		_row = i/3;
-		_col = i%3;
+		_row = i/20;
+		_col = i%20;
 	}
 
 	@Override
