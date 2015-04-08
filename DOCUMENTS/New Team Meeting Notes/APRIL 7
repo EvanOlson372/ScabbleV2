@@ -1,0 +1,16 @@
+April 7 4:00
+Evan and Leonardo did some paired programming 
+
+PLAYER COLORS
+Leonardo implemented a color option for players where you can set a color to each player with Evan as Navigator
+
+BOARD
+We had some errors that weren't allowing us to open up the Scrabble board 
+We fixed it by creating a new ArrayList for players
+With Evan as Driver and Leonardo as Navigator we are trying to figure out how to add multiple panels to a single JFrame so
+so that you can have several player racks and the 20x20 board on the same window 
+we tried changing the layout to Boarder or Box layouts to see if we both panels would pop up on the window 
+
+Ended 6:00
+
+
