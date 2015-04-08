@@ -1,6 +1,8 @@
 package code.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Observer;
@@ -47,6 +49,9 @@ public class ScrabbleUI implements Observable, Runnable {
 		p.setLayout(new GridLayout(20,20, 1, 1));
 		for (int i=0; i<400; i++) {
 			JButton b = new JButton("");
+			b.setPreferredSize(new Dimension(30,30));
+			b.setBackground(Color.RED);
+			b.setOpaque(true);
 			p.add(b);
 			b.addActionListener(new ButtonHandler(i, _dataStruct));
 			_boardButtons.add(b);
