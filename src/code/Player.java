@@ -42,6 +42,13 @@ public class Player {
 	public void setColor(Color color){
 		_color = color;
 	}
+	public Tile playTile(){
+		return _rack.removeTile(_rack.getSize()-1);
+	}
+	
+	public TileRack getRack(){
+		return _rack;
+	}
 
 	/**
 	 * Adds the new points to the original score

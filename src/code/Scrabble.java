@@ -10,14 +10,22 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Scrabble extends Observable {
+public class Scrabble {
 
 	
 	/**
 	 * Stores tiles.
 	 */
 	private Inventory _inv;
+	
+	/**
+	 * Stores color 
+	 */
 	public Color _color;
+	/**
+	 * Stores players turn
+	 */
+	private int _turn;
 	/**
 	 * Stores players.
 	 */
@@ -39,12 +47,14 @@ public class Scrabble extends Observable {
 		_board = new Board();
 		_players = new ArrayList<Player>();
 		_numberOfPlayers = 4;
+		_turn = 0;
 		
 		for (int i = 0; i < _numberOfPlayers; i++){
 			addNewPlayer();
+		
+	
 		}
 	}
-	
 	/**
 	 * Adds a new player to the game.
 	 */
@@ -54,12 +64,18 @@ public class Scrabble extends Observable {
 	
 	public Player getPlayer(int i){
 		return _players.get(i);
-	
 	}
 
-
-	public void mark(int _row, int _col) {
-		//_board[_row][ _col] = 
+	public void placeTile(int _row, int _col) {
+		System.out.println(_board.getTile(_row, _col));
+		Player p = _players.get(_turn);
+		_board.addTile(p.playTile(), _row, _col); 
+		System.out.println(_board.getTile(_row, _col));
+		
+	}
+	
+	public Tile getCurrentTile(int _row, int _col){
+		return _board.getTile(_row, _col);
 		
 	}
 
