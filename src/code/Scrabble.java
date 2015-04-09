@@ -62,10 +62,22 @@ public class Scrabble {
 		_players.add(new Player(_inv, _color));
 	}
 	
+	/**
+	 * Evan Olson
+	 * returns a player from the array list of players given an index.
+	 * @param i
+	 * @return
+	 */
 	public Player getPlayer(int i){
 		return _players.get(i);
 	}
 
+	/**
+	 * Evan Olson
+	 * Places a tile on the board.  working on implementing players turn
+	 * @param _row
+	 * @param _col
+	 */
 	public void placeTile(int _row, int _col) {
 		System.out.println(_board.getTile(_row, _col));
 		Player p = _players.get(_turn);
@@ -74,6 +86,14 @@ public class Scrabble {
 		
 	}
 	
+	/**
+	 *Evan Olson
+	 *Gets current tile from position on the board.
+	 *need to consider if there is no tile.
+	 * @param _row
+	 * @param _col
+	 * @return
+	 */
 	public Tile getCurrentTile(int _row, int _col){
 		return _board.getTile(_row, _col);
 		

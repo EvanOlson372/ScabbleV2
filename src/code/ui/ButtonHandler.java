@@ -24,6 +24,8 @@ public class ButtonHandler implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+	
 		_dataStruct.placeTile(_row, _col);
 		JButton b = (JButton) e.getSource();
 		b.setText(Character.toString(_dataStruct.getCurrentTile(_row, _col).getChar()));

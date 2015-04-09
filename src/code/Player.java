@@ -36,12 +36,21 @@ public class Player {
 	public int getScore(){
 		return _score;
 	}
+	/**
+	 *
+	 * @return Players Color
+	 */
 	public Color getColor(){
 		return _color;
 	}
+	/**
+	 * sets players color
+	 * @param color
+	 */
 	public void setColor(Color color){
 		_color = color;
 	}
+	
 	public Tile playTile(){
 		return _rack.removeTile(_rack.getSize()-1);
 	}
