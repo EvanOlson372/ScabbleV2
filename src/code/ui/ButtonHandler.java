@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import code.Scrabble;
+import code.Tile;
 
 
 public class ButtonHandler implements ActionListener {
@@ -13,6 +14,7 @@ public class ButtonHandler implements ActionListener {
 	
 	
 	private Scrabble _dataStruct;
+	private Tile _tileHolder;
 	private int _row;
 	private int _col;
 

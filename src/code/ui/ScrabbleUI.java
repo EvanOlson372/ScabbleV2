@@ -21,7 +21,7 @@ import code.TileRack;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 
-public class ScrabbleUI implements Observable, Runnable {
+public class ScrabbleUI implements Observer, Runnable {
 	
 	private static code.Scrabble _dataStruct;
 	private ArrayList<JButton> _boardButtons;
@@ -29,6 +29,7 @@ public class ScrabbleUI implements Observable, Runnable {
 	
 	public ScrabbleUI(){
 		 _dataStruct = new Scrabble();
+		 _dataStruct.addObserver((Observer) this);
 		 _boardButtons = new ArrayList<JButton>();
 		 _rackButtons = new ArrayList<JButton>();
 	}
@@ -38,12 +39,6 @@ public class ScrabbleUI implements Observable, Runnable {
 	
 	}
 
-	public void update(Observable o, Object arg) {
-		String s = _dataStruct.toString();
-		for (int i=0; i<s.length(); i++) {
-			_boardButtons.get(i).setText(""+s.charAt(i));
-		}
-	}
 	
 	@Override
 	public void run() {
@@ -94,18 +89,19 @@ public class ScrabbleUI implements Observable, Runnable {
 		return panel;
 	}
 
-	
 	@Override
-	public void addListener(InvalidationListener arg0) {
-		// TODO Auto-generated method stub
+	public void update(java.util.Observable o, Object arg) {
+	/*
+		String s = _dataStruct.toString();
+		System.out.print(s);
+		for (int i=0; i<s.length(); i++) {
+		_boardButtons.get(i).setText(""+s.charAt(i));
 		
+		}
+	*/	
 	}
 
-	@Override
-	public void removeListener(InvalidationListener arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	
 	

@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Scrabble {
+public class Scrabble extends Observable {
 
 	
 	/**
@@ -83,6 +83,8 @@ public class Scrabble {
 		Player p = _players.get(_turn);
 		_board.addTile(p.playTile(), _row, _col); 
 		System.out.println(_board.getTile(_row, _col));
+		setChanged();
+		notifyObservers();
 		
 	}
 	
