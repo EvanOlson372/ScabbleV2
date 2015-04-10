@@ -3,7 +3,7 @@ package code;
 import java.awt.Color;
 
 public class Player {
-
+	
 	/**
 	 * Records the score.
 	 */
@@ -60,4 +60,11 @@ public class Player {
 		_score = _score + i;
 		return _score;
 	}
+	/**
+	 * get size of rack
+	 */
+	public int getRackSize(){
+		return _rack.getSize();
+	}
+	
 }

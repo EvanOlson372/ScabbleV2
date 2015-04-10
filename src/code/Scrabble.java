@@ -63,7 +63,7 @@ public class Scrabble extends Observable {
 	/**
 	 * Adds a new player to the game.
 	 */
-	public void addNewPlayer(){
+	public void addNewPlayer(int i){
 		_players.add(new Player(_inv));
 	}
 	
@@ -109,6 +109,9 @@ public class Scrabble extends Observable {
 	 * gets the board
 	 */
 	public Board getBoard(){
+		
+		setChanged();
+		notifyObservers();
 		return _board;
 	}
 	/**

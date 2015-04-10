@@ -1,6 +1,8 @@
 package code;
 
-public class Board {
+import java.util.Observable;
+
+public class Board extends Observable {
 
 	/**
 	 * 2-D array of tiles to store tiles.
@@ -23,6 +25,8 @@ public class Board {
 	 */
 	public void addTile(Tile t, int x, int y){
 		_board[x][y] = t;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**

@@ -27,10 +27,13 @@ public class ScrabbleUI implements Observer, Runnable {
 	private static code.Scrabble _dataStruct;
 	private ArrayList<JButton> _boardButtons;
 	private ArrayList<JButton> _rackButtons;
-	private static ArrayList<String> _players;
+	private static ArrayList<String> _players; 
+	private int c = 0;
+	private JFrame _window;
 	
 	public ScrabbleUI(){
-		 	_dataStruct = new Scrabble();
+		 _dataStruct = new Scrabble();
+		 _dataStruct.addObserver((Observer) this);
 		 _boardButtons = new ArrayList<JButton>();
 		 _rackButtons = new ArrayList<JButton>();
 		 _dataStruct.addPlayerName(_players);
@@ -48,9 +51,8 @@ public class ScrabbleUI implements Observer, Runnable {
 			
 		//	_dataStruct.addPlayerName(s);
 		//	_dataStruct.addToNumberOfPlayers();
-		
-		
 		SwingUtilities.invokeLater(new ScrabbleUI());
+		
 	}
 
 	
@@ -60,11 +62,14 @@ public class ScrabbleUI implements Observer, Runnable {
 		_dataStruct.addToNumberOfPlayers();
 		_dataStruct.addToNumberOfPlayers();
 		_dataStruct.addToNumberOfPlayers();
-		_dataStruct.addNewPlayer();
-		_dataStruct.addNewPlayer();
-		_dataStruct.addNewPlayer();
+		_dataStruct.addNewPlayer(0);
+		_dataStruct.addNewPlayer(1);
+		_dataStruct.addNewPlayer(2);
 				
-		JFrame window = new JFrame("Scrabble");
+		
+		
+		
+		_window = new JFrame("Scrabble");
 		JPanel northPanel = new JPanel();
 		JPanel southPanel = new JPanel();
 		northPanel.setLayout(new GridLayout(20,20, 1, 1));
@@ -84,11 +89,12 @@ public class ScrabbleUI implements Observer, Runnable {
 			southPanel.add(addPlayerPanel(_dataStruct.getPlayer(i),_dataStruct.getPlayerName(i)));
 		}
 			
-		window.add(northPanel, BorderLayout.NORTH);
-		window.add(southPanel, BorderLayout.SOUTH);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.pack();
-		window.setVisible(true);
+		_window.add(northPanel, BorderLayout.NORTH);
+		_window.add(southPanel, BorderLayout.SOUTH);
+		_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		_window.pack();
+		_window.setVisible(true);
+	
 
 		
 	}
@@ -99,29 +105,35 @@ public class ScrabbleUI implements Observer, Runnable {
 		JLabel label = new JLabel(name + ":" + Integer.toString(p.getScore()));
 		panel.add(label);
 		panel.setLayout(new FlowLayout());
-		for(int i = 0;i<12; i++){
+		for(int i = 0 ;i<12; i++){
 			JButton b = new JButton(Character.toString(p.getTile(i).getChar()) +":"+ Integer.toString(p.getTile(i).getValue()) );
 			b.setPreferredSize(new Dimension(30,30));
 			b.setOpaque(true);
 			panel.add(b);
-			b.addActionListener(new RackButtonHandler(i, _dataStruct));
+			b.addActionListener(new RackButtonHandler(c, _dataStruct));
 			_rackButtons.add(b);
+			c++;
 		}
 		return panel;
+	}
+	public ArrayList<JButton> getRackButtons(){
+		
+		return _rackButtons;
+	}
+	public void  setRackButton(ArrayList<JButton> b){
+		_rackButtons = b;
+		
 	}
 
 	@Override
 	public void update(java.util.Observable o, Object arg) {
-	/*
-		String s = _dataStruct.toString();
-		System.out.print(s);
-		for (int i=0; i<s.length(); i++) {
-		_boardButtons.get(i).setText(""+s.charAt(i));
+		// TODO Auto-generated method stub
 		
-		}
-	*/	
 	}
+	
+	
 
+	
 	
 
 	

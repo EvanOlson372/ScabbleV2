@@ -11,6 +11,7 @@ public class Tile {
 	 */
 	private int _pointValue;
 	
+	
 	/**
 	 * Class constructor.
 	 * 
@@ -38,5 +39,6 @@ public class Tile {
 	 */
 	public int getValue(){
 		return _pointValue;
-	}
+	}	
+	
 }
