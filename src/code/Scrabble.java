@@ -60,7 +60,7 @@ public class Scrabble extends Observable {
 		_board = new Board();
 		_players = new ArrayList<Player>();
 		_numberOfPlayers = 0;
-		_turn = 1;
+		_turn = 0;
 
 	}
 	/**
@@ -164,28 +164,26 @@ public class Scrabble extends Observable {
 	public int countWordScore(String s){
 		int score = 0;
 		
-		for (int i = 'A'; i <= 'Z'; i = i + 1){
-			// Create 29 of each vowel with point value 1
-			if ((i == 'A')||(i == 'E')||(i == 'I')||(i == 'O')||(i =='U')){
-				for (int j = 0; j < 29; j++){
-					_tileBag.add(new Tile((char)i,1));
+		for(int i = 0; i < s.length(); i++ ){
+			char c = s.charAt(i);
+			
+				// Create 29 of each vowel with point value 1
+				if ((c == 'A')||(c == 'E')||(c == 'I')||(c == 'O')||(c =='U')){
+					score += 1;
 				}
-			}
-			// Create 15 y's with point value 2
-			else if (i == 'Y'){
-				for (int j = 0; j < 15; j++){
-					_tileBag.add(new Tile((char)i,2));
+				// Create 15 y's with point value 2
+				else if (c == 'Y'){
+					score += 2;
 				}
-			}
-			// Create 12 of every other letter with point value 5
-			else{
-				for (int j = 0; j < 12; j++){
-					_tileBag.add(new Tile((char)i,5));
+				// Create 12 of every other letter with point value 5
+				else{
+					score += 5;
+					
 				}
-			}
 		}
-	
-		return 0;
+		
+		
+		return score;
 	}
 	/**
 	 * gets the current tile bag

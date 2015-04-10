@@ -21,10 +21,9 @@ public class NextTurnButtonHandler implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Player p = _dataStruct.getCurrentPlayer();
 		DictionaryScanner ds = new DictionaryScanner();
-		if(ds.compareWord(_dataStruct.getWordPlayed(), "/src/code/Dictionary" ) == true){
-			
+		if(DictionaryScanner.compareWord(_dataStruct.getWordPlayed(), "src/code/Dictionary" ) == true){
+			p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getWordPlayed()));
 		}
-		p.addScore(p.getScore(), )
 		_dataStruct.nextTurn();
 		
 		
