@@ -7,25 +7,23 @@ public class Player {
 	/**
 	 * Records the score.
 	 */
-	private int _score;
-	private Color _color;
+	private int _score = 0;
 	
 	/**
 	 * Allows the Player to access the Tiles on its own TileRack.
 	 */
 	private TileRack _rack;
-	private Inventory _inv;
+	//private Inventory _inv;
 	
 	/**
 	 * Class constructor.
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv, Color col){
+	public Player(Inventory inv){
 		_score = 0;
-		_inv = inv;
+		//_inv = inv;
 		_rack = new TileRack(inv);
-		_color = col;
 	}
 	
 	/**
@@ -36,29 +34,20 @@ public class Player {
 	public int getScore(){
 		return _score;
 	}
+	
 	/**
-	 *
-	 * @return Players Color
+	 * chooses a tile from the payers RACK!!
 	 */
-	public Color getColor(){
-		return _color;
+	public Tile pickTile(int i){
+		return _rack.removeTile(i);
 	}
 	/**
-	 * sets players color
-	 * @param color
+	 * looks at tile without changing anything
 	 */
-	public void setColor(Color color){
-		_color = color;
+	public Tile getTile(int i){
+	return _rack.get(i);	
 	}
 	
-	public Tile playTile(){
-		return _rack.removeTile(_rack.getSize()-1);
-	}
-	
-	public TileRack getRack(){
-		return _rack;
-	}
-
 	/**
 	 * Adds the new points to the original score
 	 * 

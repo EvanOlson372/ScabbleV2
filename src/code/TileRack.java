@@ -57,11 +57,6 @@ public class TileRack {
 		_rack.remove(i);
 		return tileToRemove;
 	}
-	
-	public Tile getTile(int i){
-		return _rack.get(i);
-		
-	}
 
 	/**
 	 * Gets size of the tile rack
@@ -70,5 +65,9 @@ public class TileRack {
 	 */
 	public int getSize() {
 		return _rack.size();
+	}
+
+	public Tile get(int i) {
+		return _rack.get(i);
 	}
 }

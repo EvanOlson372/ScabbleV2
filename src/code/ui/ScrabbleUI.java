@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Panel;
 import java.util.ArrayList;
 import java.util.Observer;
 
@@ -26,42 +27,65 @@ public class ScrabbleUI implements Observer, Runnable {
 	private static code.Scrabble _dataStruct;
 	private ArrayList<JButton> _boardButtons;
 	private ArrayList<JButton> _rackButtons;
+	private static ArrayList<String> _players;
 	
 	public ScrabbleUI(){
-		 _dataStruct = new Scrabble();
-		 _dataStruct.addObserver((Observer) this);
+		 	_dataStruct = new Scrabble();
 		 _boardButtons = new ArrayList<JButton>();
 		 _rackButtons = new ArrayList<JButton>();
+		 _dataStruct.addPlayerName(_players);
 	}
 
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new ScrabbleUI());
+		
 	
+//patchwork just to confirm ui is building correctly
+			_players = new ArrayList<String>();
+			_players.add("jeff");
+			_players.add("jim");
+			_players.add("bill");
+			
+			
+		//	_dataStruct.addPlayerName(s);
+		//	_dataStruct.addToNumberOfPlayers();
+		
+		
+		SwingUtilities.invokeLater(new ScrabbleUI());
 	}
 
 	
 	@Override
 	public void run() {
+		
+		_dataStruct.addToNumberOfPlayers();
+		_dataStruct.addToNumberOfPlayers();
+		_dataStruct.addToNumberOfPlayers();
+		_dataStruct.addNewPlayer();
+		_dataStruct.addNewPlayer();
+		_dataStruct.addNewPlayer();
+				
 		JFrame window = new JFrame("Scrabble");
-		JPanel p = new JPanel();
-		p.setLayout(new GridLayout(20,20, 1, 1));
+		JPanel northPanel = new JPanel();
+		JPanel southPanel = new JPanel();
+		northPanel.setLayout(new GridLayout(20,20, 1, 1));
 		for (int i=0; i<400; i++) {
 			JButton b = new JButton("");
 			b.setPreferredSize(new Dimension(30,30));
 			b.setForeground(Color.red);
 			b.setOpaque(true);
-			p.add(b);
-			b.addActionListener(new ButtonHandler(i, _dataStruct));
+			northPanel.add(b);
+			b.addActionListener(new BoardButtonHandler(i, _dataStruct));
 			_boardButtons.add(b);
 		}
-		window.add(p);
-		JPanel playerPane = new JPanel();
-		playerPane.setLayout(new BoxLayout(playerPane, BoxLayout.Y_AXIS));
-		playerPane.add(addPlayerPanel(_dataStruct.getPlayer(0), Color.RED, "bill"));
-		playerPane.add(addPlayerPanel(_dataStruct.getPlayer(1), Color.RED,  "jim"));
-		playerPane.add(addPlayerPanel(_dataStruct.getPlayer(1), Color.RED,  "jeff"));
-
-		window.add(playerPane, BorderLayout.SOUTH);
+		
+		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
+		
+		for(int i = 0; i <_dataStruct.getNumberOfPlayer(); i++ ){
+			southPanel.add(addPlayerPanel(_dataStruct.getPlayer(i),_dataStruct.getPlayerName(i)));
+		}
+			
+		window.add(northPanel, BorderLayout.NORTH);
+		window.add(southPanel, BorderLayout.SOUTH);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setVisible(true);
@@ -70,20 +94,17 @@ public class ScrabbleUI implements Observer, Runnable {
 	}
 
 	
-	public JPanel addPlayerPanel(Player p, Color c, String name){
+	public JPanel addPlayerPanel(Player p, String name){
 		JPanel panel = new JPanel();
-		JLabel label = new JLabel(name);
+		JLabel label = new JLabel(name + ":" + Integer.toString(p.getScore()));
 		panel.add(label);
 		panel.setLayout(new FlowLayout());
-		TileRack tr = p.getRack();
-		
 		for(int i = 0;i<12; i++){
-			JButton b = new JButton(Character.toString(tr.getTile(i).getChar()));
+			JButton b = new JButton(Character.toString(p.getTile(i).getChar()) +":"+ Integer.toString(p.getTile(i).getValue()) );
 			b.setPreferredSize(new Dimension(30,30));
-			b.setForeground(c);;
 			b.setOpaque(true);
 			panel.add(b);
-			b.addActionListener(new ButtonHandler(i, _dataStruct));
+			b.addActionListener(new RackButtonHandler(i, _dataStruct));
 			_rackButtons.add(b);
 		}
 		return panel;
