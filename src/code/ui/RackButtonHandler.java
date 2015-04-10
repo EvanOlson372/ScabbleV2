@@ -21,9 +21,7 @@ public class RackButtonHandler implements ActionListener  {
 	public void actionPerformed(ActionEvent e) {
 		Player p = _dataStruct.getCurrentPlayer();
 		if(_i/12 == _dataStruct.getTurn()){
-		
 			_dataStruct.setSelectedTile(p.pickTile(_i%12));
-		
 		}
 		else{
 			

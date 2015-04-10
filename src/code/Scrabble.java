@@ -61,7 +61,7 @@ public class Scrabble extends Observable {
 		_players = new ArrayList<Player>();
 		_numberOfPlayers = 0;
 		_turn = 0;
-
+		_wordBeingPlayed = "";
 	}
 	/**
 	 * Adds a new player to the game.
