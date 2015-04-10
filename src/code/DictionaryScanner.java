@@ -19,24 +19,25 @@ public class DictionaryScanner {
         	if(ch >='A'&& ch<='Z'){
         		wordd = wordd+ch;
         	}
-        	else if(ch == '\n'){
+        	else if(ch == ' '){
         		dictionary.add(word);
         	}
   
         
         	if( dictionary.contains(word)){
         		  there = true;
-        		  System.out.println("true");
+        		//  System.out.println("true");
         		}
         	else{
         		 there = false;
-        		 System.out.println("false");
+        		// System.out.println("false");
         	}
         	
         	
         
         }
         
+        System.out.println(there);
         return there;
 	
 	
@@ -52,7 +53,7 @@ public class DictionaryScanner {
 			scan = new Scanner(new File(filename));			
 			while (scan.hasNextLine()) {
 				String oneLine = scan.nextLine();
-				readfile = readfile+ oneLine;
+				readfile = readfile+ oneLine + " ";
 			}
  		} catch (FileNotFoundException e) {
 			System.err.println("File not found: "+filename);
@@ -65,8 +66,7 @@ public class DictionaryScanner {
 
 
 public static void main (String []args){
-	new code.DictionaryScanner().compareWord("", );
-//DictionaryScanner.compareWord( "CAT","/Dictionary.txt");
+DictionaryScanner.compareWord( "BIRD","src/code/Dictionary");
 
 	
 }
