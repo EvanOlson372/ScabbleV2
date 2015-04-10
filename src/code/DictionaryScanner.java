@@ -7,14 +7,27 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryScanner {
-	
+	/** The DictionaryScanner is implemented after each turn is completed
+	* and validates the word played. The compareWord method takes in the word
+	* played as well as the filepath to our Dictionary Document. It scans the file
+	* and adds to to an array list which is used for comparison.
+	*/
 	public static boolean compareWord (String word,String filep){
-		ArrayList<String> dictionary  = new ArrayList<String>();
+		
+		//array list where the words in the file will be added
+		
+		ArrayList<String> dictionary  = new ArrayList<String>(); 
 		boolean there = false;
 		String dWord ="";
-		String file= readMe(filep);
-		System.out.println("read me creates: "+ '\n'+ file);
-        for (int i= 0; i<file.length();i++){
+		
+		//static method which returns a string from a scanned file
+		
+		String file= readMe(filep); 
+		//System.out.println("read me creates: "+ '\n'+ file);
+		
+		// iterates through the file and adds words to the array list
+		
+		for (int i= 0; i<file.length();i++){ 
         	char ch = file.charAt(i);
         	if(ch >='A'&& ch<='Z'){
         		dWord= dWord+ch;
@@ -26,17 +39,15 @@ public class DictionaryScanner {
         
         	if( dictionary.contains(word)){
         		  there = true;
-        		//  System.out.println("true");
+        		
         		}
         	else{
         		 there = false;
-        		// System.out.println("false");
+        	
         	}
-        	
-        	
-        
         }
-        
+		
+        //returns a boolean value, and prints for testing purposes
         System.out.println(there);
         return there;
 	
@@ -44,9 +55,11 @@ public class DictionaryScanner {
 		
 }
 	
+	/** Private static method which scans the input filepath
+	 * and returns a string which can be added to the Array list above.
+	*/
 	
-	
-	public static String readMe(String filename) {
+	private static String readMe(String filename) {
 		Scanner scan = null;
 		String readfile = "";
 		try {
@@ -66,7 +79,7 @@ public class DictionaryScanner {
 
 
 public static void main (String []args){
-DictionaryScanner.compareWord( "BLAVDGSGDS","src/code/Dictionary");
+DictionaryScanner.compareWord( "Jew","src/code/Dictionary");
 
 	
 }
