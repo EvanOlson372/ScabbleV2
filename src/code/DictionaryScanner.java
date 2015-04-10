@@ -11,31 +11,33 @@ public class DictionaryScanner {
 	public static boolean compareWord (String word,String filep){
 		ArrayList<String> dictionary  = new ArrayList<String>();
 		boolean there = false;
-		String wordd ="";
+		String dWord ="";
 		String file= readMe(filep);
+		System.out.println("read me creates "+ file);
         for (int i= 0; i<file.length();i++){
         	char ch = file.charAt(i);
         	if(ch >='A'&& ch<='Z'){
-        		wordd = wordd+ch;
+        		dWord= dWord+ch;
         	}
-        	else if(ch == '\n'){
-        		dictionary.add(word);
+        	else if(ch == ' '){
+        		dictionary.add(dWord);
         	}
   
         
         	if( dictionary.contains(word)){
         		  there = true;
-        		  System.out.println("true");
+        		//  System.out.println("true");
         		}
         	else{
         		 there = false;
-        		 System.out.println("false");
+        		// System.out.println("false");
         	}
         	
         	
         
         }
         
+        System.out.println(there);
         return there;
 	
 	
@@ -51,7 +53,7 @@ public class DictionaryScanner {
 			scan = new Scanner(new File(filename));			
 			while (scan.hasNextLine()) {
 				String oneLine = scan.nextLine();
-				readfile = readfile+ oneLine;
+				readfile = readfile+ oneLine + " ";
 			}
  		} catch (FileNotFoundException e) {
 			System.err.println("File not found: "+filename);
@@ -64,7 +66,7 @@ public class DictionaryScanner {
 
 
 public static void main (String []args){
- DictionaryScanner.compareWord( "CAT" ,"main.Dictionary");
+DictionaryScanner.compareWord( "BLAVDGSGDS","src/code/Dictionary");
 
 	
 }
