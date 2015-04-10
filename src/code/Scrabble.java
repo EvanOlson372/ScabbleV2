@@ -48,7 +48,10 @@ public class Scrabble extends Observable {
 	 * stores players names
 	 */
 	public ArrayList<String> _playerNames;
-	
+	/**
+	 * Word holder
+	 */
+	String _wordBeingPlayed;
 	/**
 	 * Class constructor
 	 */
@@ -96,7 +99,6 @@ public class Scrabble extends Observable {
 	 */
 	public int getTurn(){
 		return _turn;
-		
 	}
 	
 	/**
@@ -143,6 +145,53 @@ public class Scrabble extends Observable {
 	 */
 	public Player getPlayer(int i){
 		return _players.get(i);
+	}
+	/**
+	 * adds letter to word being played
+	 */
+	public void addToWordBeingPlayed(char c){
+		_wordBeingPlayed = _wordBeingPlayed + c;
+	}
+	/**
+	 * Gets word that was played
+	 */
+	public String getWordPlayed(){
+		return _wordBeingPlayed;
+	}
+	/**
+	 * counts up word score
+	 */
+	public int countWordScore(String s){
+		int score = 0;
+		
+		for (int i = 'A'; i <= 'Z'; i = i + 1){
+			// Create 29 of each vowel with point value 1
+			if ((i == 'A')||(i == 'E')||(i == 'I')||(i == 'O')||(i =='U')){
+				for (int j = 0; j < 29; j++){
+					_tileBag.add(new Tile((char)i,1));
+				}
+			}
+			// Create 15 y's with point value 2
+			else if (i == 'Y'){
+				for (int j = 0; j < 15; j++){
+					_tileBag.add(new Tile((char)i,2));
+				}
+			}
+			// Create 12 of every other letter with point value 5
+			else{
+				for (int j = 0; j < 12; j++){
+					_tileBag.add(new Tile((char)i,5));
+				}
+			}
+		}
+	
+		return 0;
+	}
+	/**
+	 * gets the current tile bag
+	 */
+	public Inventory getInventory(){
+		return _inv;
 	}
 	
 	
