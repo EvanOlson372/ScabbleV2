@@ -56,7 +56,7 @@ public class ScrabbleUI implements Observer, Runnable {
 	
 	@Override
 	public void run() {
-		
+		//commit
 		_dataStruct.addToNumberOfPlayers();
 		_dataStruct.addToNumberOfPlayers();
 		_dataStruct.addToNumberOfPlayers();
