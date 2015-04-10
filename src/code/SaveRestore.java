@@ -6,23 +6,33 @@ package code;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintStream;
+//import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class SaveRestore {
+	private String _boardsize;
+	private String _dictionaryLoc;
+	private String _players;
+	private String _inventory;
+	private String _board;
 	
-	public void gameFileWrite(String filename){
+	public void gameFileWrite(String filename, String boardsize,String dictionaryLoc, String players, String inventory, String board){
 		PrintWriter writer = null;
+		_boardsize = boardsize;
+		_dictionaryLoc = dictionaryLoc;
+		_players = players;
+		_inventory = inventory;
+	     _board = board;
+		
 		try{
 		writer = new PrintWriter(filename, "UTF-8");
-		writer.println();
-		writer.println();
-		writer.println();
-		writer.println();
-		writer.println();
-		writer.println();
+		writer.println(_boardsize);
+		writer.println(_dictionaryLoc);
+		writer.println(_players);
+		writer.println(_inventory);
+		writer.println(_board);
 		
 		} catch (FileNotFoundException e) {
 			System.err.println("File not found and cannot be created: "+filename);
@@ -64,7 +74,7 @@ public class SaveRestore {
 		scan = new Scanner(new File(filename));
 		while (scan.hasNextLine()) {
 			String oneLineFromFile = scan.nextLine();
-			gamefile = gamefile + oneLineFromFile;
+			gamefile = gamefile + oneLineFromFile + '\n';
 		}
 	} catch (FileNotFoundException e) {
 		System.err.println("File not found: "+filename);

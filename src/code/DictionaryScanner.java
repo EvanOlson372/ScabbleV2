@@ -13,13 +13,13 @@ public class DictionaryScanner {
 		boolean there = false;
 		String dWord ="";
 		String file= readMe(filep);
-		System.out.println("read me creates "+ file);
+		System.out.println("read me creates: "+ '\n'+ file);
         for (int i= 0; i<file.length();i++){
         	char ch = file.charAt(i);
         	if(ch >='A'&& ch<='Z'){
         		dWord= dWord+ch;
         	}
-        	else if(ch == ' '){
+        	else if(ch == '\n'){
         		dictionary.add(dWord);
         	}
   
@@ -53,7 +53,7 @@ public class DictionaryScanner {
 			scan = new Scanner(new File(filename));			
 			while (scan.hasNextLine()) {
 				String oneLine = scan.nextLine();
-				readfile = readfile+ oneLine + " ";
+				readfile = readfile+ oneLine + '\n';
 			}
  		} catch (FileNotFoundException e) {
 			System.err.println("File not found: "+filename);
