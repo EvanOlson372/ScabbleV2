@@ -12,12 +12,6 @@ import java.util.Random;
 
 public class Scrabble extends Observable {
 
-
-	
-	/**
-	 * stores current selected tile
-	 */
-	private Tile _tileHolder;
 	
 	/**
 	 * Stores tiles.
@@ -44,10 +38,6 @@ public class Scrabble extends Observable {
 	 * Number of players
 	 */
 	private int _numberOfPlayers;
-	/**
-	 * stores players names
-	 */
-	public ArrayList<String> _playerNames;
 	
 	/**
 	 * Class constructor
@@ -56,94 +46,64 @@ public class Scrabble extends Observable {
 		_inv = new Inventory();
 		_board = new Board();
 		_players = new ArrayList<Player>();
-		_numberOfPlayers = 0;
+		_numberOfPlayers = 4;
 		_turn = 0;
-
+		
+		for (int i = 0; i < _numberOfPlayers; i++){
+			addNewPlayer();
+		
+	
+		}
 	}
 	/**
 	 * Adds a new player to the game.
 	 */
 	public void addNewPlayer(){
-		_players.add(new Player(_inv));
+		_players.add(new Player(_inv, _color));
 	}
 	
 	/**
-	 * gets currently selected tile
-	 */
-	public Tile getSelectedTile(){
-		return _tileHolder;
-	}
-	
-	/**
-	 * Selects current tile
-	 */
-	public void setSelectedTile(Tile t){
-		_tileHolder = t;
-		
-	}
-
-	/**
-	 * advances the turn
-	 */
-	public void nextTurn(){
-		_turn++;
-		if(_turn == _numberOfPlayers)
-			_turn = 0;
-	}
-	
-	/**
-	 * gets the current turn
-	 */
-	public int getTurn(){
-		return _turn;
-		
-	}
-	
-	/**
-	 * gets the current player
-	 */
-	public Player getCurrentPlayer(){
-		return _players.get(_turn);
-	}
-	/**
-	 * gets the board
-	 */
-	public Board getBoard(){
-		return _board;
-	}
-	/**
-	 * sets number of players
-	 */
-	public void addToNumberOfPlayers(){
-		_numberOfPlayers++;
-	}
-	/**
-	 * gets number of players
-	 */
-	public int getNumberOfPlayer(){
-		return _numberOfPlayers;
-		
-	}
-	/**
-	 * adds [players names
-	 * @param s
-	 */
-	public void addPlayerName(ArrayList players){
-		_playerNames = players;
-	}
-	/**
-	 * gets players name
-	 */
-	public String getPlayerName(int i){
-		return _playerNames.get(i);
-	}
-	/**
-	 * getPlayer
-	 * @return 
+	 * Evan Olson
+	 * returns a player from the array list of players given an index.
+	 * @param i
+	 * @return
 	 */
 	public Player getPlayer(int i){
 		return _players.get(i);
 	}
+
+	/**
+	 * Evan Olson
+	 * Places a tile on the board.  working on implementing players turn
+	 * @param _row
+	 * @param _col
+	 */
+	public void placeTile(int _row, int _col) {
+		System.out.println(_board.getTile(_row, _col));
+		Player p = _players.get(_turn);
+		_board.addTile(p.playTile(), _row, _col); 
+		System.out.println(_board.getTile(_row, _col));
+		setChanged();
+		notifyObservers();
+		
+	}
 	
-	
+	/**
+	 *Evan Olson
+	 *Gets current tile from position on the board.
+	 *need to consider if there is no tile.
+	 * @param _row
+	 * @param _col
+	 * @return
+	 */
+	public Tile getCurrentTile(int _row, int _col){
+		return _board.getTile(_row, _col);
+		
+	}
+
+
+
+
+
+
 }

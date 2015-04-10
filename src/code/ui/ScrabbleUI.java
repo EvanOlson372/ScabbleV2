@@ -26,17 +26,22 @@ public class ScrabbleUI implements Observer, Runnable {
 	private ArrayList<JButton> _boardButtons;
 	private ArrayList<JButton> _rackButtons;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	private static ArrayList<String> _players;
 >>>>>>> parent of 061482a... Still Working on stuff
+=======
+>>>>>>> parent of 22b416f... Holy Fuck Tons OF SHIT!!
 	
 	public ScrabbleUI(){
-		 	_dataStruct = new Scrabble();
+		 _dataStruct = new Scrabble();
+		 _dataStruct.addObserver((Observer) this);
 		 _boardButtons = new ArrayList<JButton>();
 		 _rackButtons = new ArrayList<JButton>();
 	}
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 		SwingUtilities.invokeLater(new ScrabbleUI());
 	
@@ -56,11 +61,16 @@ public class ScrabbleUI implements Observer, Runnable {
 		
 		SwingUtilities.invokeLater(new ScrabbleUI());
 >>>>>>> parent of 061482a... Still Working on stuff
+=======
+		SwingUtilities.invokeLater(new ScrabbleUI());
+	
+>>>>>>> parent of 22b416f... Holy Fuck Tons OF SHIT!!
 	}
 
 	
 	@Override
 	public void run() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 		JFrame window = new JFrame("Scrabble");
 		JPanel p = new JPanel();
@@ -79,16 +89,27 @@ public class ScrabbleUI implements Observer, Runnable {
 		JPanel southPanel = new JPanel();
 		northPanel.setLayout(new GridLayout(20,20, 1, 1));
 >>>>>>> parent of 061482a... Still Working on stuff
+=======
+		JFrame window = new JFrame("Scrabble");
+		JPanel p = new JPanel();
+		p.setLayout(new GridLayout(20,20, 1, 1));
+>>>>>>> parent of 22b416f... Holy Fuck Tons OF SHIT!!
 		for (int i=0; i<400; i++) {
 			JButton b = new JButton("");
 			b.setPreferredSize(new Dimension(30,30));
 			b.setForeground(Color.red);
 			b.setOpaque(true);
 			p.add(b);
+<<<<<<< HEAD
 			b.addActionListener(new BoardButtonHandler(i, _dataStruct));
 			_boardButtons.add(b);
 		}
 <<<<<<< HEAD
+=======
+			b.addActionListener(new ButtonHandler(i, _dataStruct));
+			_boardButtons.add(b);
+		}
+>>>>>>> parent of 22b416f... Holy Fuck Tons OF SHIT!!
 		window.add(p);
 		JPanel playerPane = new JPanel();
 		playerPane.setLayout(new BoxLayout(playerPane, BoxLayout.Y_AXIS));
@@ -97,6 +118,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		playerPane.add(addPlayerPanel(_dataStruct.getPlayer(1), Color.RED,  "jeff"));
 
 		window.add(playerPane, BorderLayout.SOUTH);
+<<<<<<< HEAD
 =======
 		
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
@@ -108,6 +130,8 @@ public class ScrabbleUI implements Observer, Runnable {
 		window.add(northPanel, BorderLayout.NORTH);
 		window.add(southPanel, BorderLayout.SOUTH);
 >>>>>>> parent of 061482a... Still Working on stuff
+=======
+>>>>>>> parent of 22b416f... Holy Fuck Tons OF SHIT!!
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.pack();
 		window.setVisible(true);
@@ -122,6 +146,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		panel.add(label);
 		panel.setLayout(new FlowLayout());
 <<<<<<< HEAD
+<<<<<<< HEAD
 		TileRack tr = p.getRack();
 		
 		for(int i = 0;i<12; i++){
@@ -130,15 +155,25 @@ public class ScrabbleUI implements Observer, Runnable {
 		for(int i = 0;i<12; i++){
 			JButton b = new JButton(Character.toString(p.getTile(i).getChar()) +":"+ Integer.toString(p.getTile(i).getValue()) );
 >>>>>>> parent of 061482a... Still Working on stuff
+=======
+		TileRack tr = p.getRack();
+		
+		for(int i = 0;i<12; i++){
+			JButton b = new JButton(Character.toString(tr.getTile(i).getChar()));
+>>>>>>> parent of 22b416f... Holy Fuck Tons OF SHIT!!
 			b.setPreferredSize(new Dimension(30,30));
 			b.setForeground(c);;
 			b.setOpaque(true);
 			panel.add(b);
 <<<<<<< HEAD
+<<<<<<< HEAD
 			b.addActionListener(new BoardButtonHandler(i, _dataStruct));
 =======
 			b.addActionListener(new RackButtonHandler(i, _dataStruct));
 >>>>>>> parent of 061482a... Still Working on stuff
+=======
+			b.addActionListener(new ButtonHandler(i, _dataStruct));
+>>>>>>> parent of 22b416f... Holy Fuck Tons OF SHIT!!
 			_rackButtons.add(b);
 		}
 		return panel;
