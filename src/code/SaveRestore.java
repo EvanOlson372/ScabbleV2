@@ -9,9 +9,23 @@ import java.io.FileNotFoundException;
 //import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+/** This class writes a new file with the references to what
+ * we want to save in the game as well as reads a file and returns
+ * a string
+*/
+
+
 public class SaveRestore {
+	
+	public String Array2String( ArrayList<Object> input){
+		String output = input.toString();
+		return output;
+	}
+  
+	
 	private String _boardsize;
 	private String _dictionaryLoc;
 	private String _players;
@@ -82,7 +96,9 @@ public class SaveRestore {
 	finally {
 		scan.close();
 	}
+	System.out.println(gamefile);
 	return gamefile;
+	
 }
 
 

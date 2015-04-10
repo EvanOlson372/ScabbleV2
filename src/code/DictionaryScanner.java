@@ -23,20 +23,21 @@ public class DictionaryScanner {
 		//static method which returns a string from a scanned file
 		
 		String file= readMe(filep); 
-		//System.out.println("read me creates: "+ '\n'+ file);
+		System.out.println("read me creates: "+ '\n'+ file);
 		
 		// iterates through the file and adds words to the array list
 		
 		for (int i= 0; i<file.length();i++){ 
-        	char ch = file.charAt(i);
+			char ch = file.charAt(i);
         	if(ch >='A'&& ch<='Z'){
         		dWord= dWord+ch;
         	}
         	else if(ch == '\n'){
         		dictionary.add(dWord);
+        		dWord = "";
         	}
-  
-        
+		}
+          System.out.println(dictionary);
         	if( dictionary.contains(word)){
         		  there = true;
         		
@@ -45,7 +46,9 @@ public class DictionaryScanner {
         		 there = false;
         	
         	}
-        }
+        	
+        
+
 		
         //returns a boolean value, and prints for testing purposes
         System.out.println(there);
@@ -79,7 +82,7 @@ public class DictionaryScanner {
 
 
 public static void main (String []args){
-DictionaryScanner.compareWord( "Jew","src/code/Dictionary");
+DictionaryScanner.compareWord( "CAT","src/code/Dictionary");
 
 	
 }
