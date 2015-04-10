@@ -27,6 +27,7 @@ public class ScrabbleUI implements Observer, Runnable {
 	private static code.Scrabble _dataStruct;
 	private ArrayList<JButton> _boardButtons;
 	private ArrayList<JButton> _rackButtons;
+	private JButton _nextTurnButton;
 	private static ArrayList<String> _players;
 	private int _c = 0;
 	
@@ -68,6 +69,12 @@ public class ScrabbleUI implements Observer, Runnable {
 		JFrame window = new JFrame("Scrabble");
 		JPanel northPanel = new JPanel();
 		JPanel southPanel = new JPanel();
+		_nextTurnButton = new JButton("End Turn");
+		_nextTurnButton.setPreferredSize(new Dimension(30, 60));
+		_nextTurnButton.setOpaque(true);
+		_nextTurnButton.addActionListener(new NextTurnButtonHandler(_dataStruct));
+		
+		
 		northPanel.setLayout(new GridLayout(20,20, 1, 1));
 		for (int i=0; i<400; i++) {
 			JButton b = new JButton("");
@@ -84,7 +91,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		for(int i = 0; i <_dataStruct.getNumberOfPlayer(); i++ ){
 			southPanel.add(addPlayerPanel(_dataStruct.getPlayer(i),_dataStruct.getPlayerName(i)));
 		}
-			
+		southPanel.add(_nextTurnButton);
 		window.add(northPanel, BorderLayout.NORTH);
 		window.add(southPanel, BorderLayout.SOUTH);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -108,6 +115,7 @@ public class ScrabbleUI implements Observer, Runnable {
 			b.addActionListener(new RackButtonHandler(_c, _dataStruct));
 			_rackButtons.add(b);
 			_c++;
+			System.out.println(_c);
 		}
 		return panel;
 	}

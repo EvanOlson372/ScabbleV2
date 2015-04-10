@@ -57,7 +57,7 @@ public class Scrabble extends Observable {
 		_board = new Board();
 		_players = new ArrayList<Player>();
 		_numberOfPlayers = 0;
-		_turn = 0;
+		_turn = 1;
 
 	}
 	/**
