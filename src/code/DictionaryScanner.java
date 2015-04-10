@@ -13,6 +13,7 @@ public class DictionaryScanner {
 		boolean there = false;
 		String wordd ="";
 		String file= readMe(filep);
+		System.out.println("read me creates "+ file);
         for (int i= 0; i<file.length();i++){
         	char ch = file.charAt(i);
         	if(ch >='A'&& ch<='Z'){
@@ -64,7 +65,8 @@ public class DictionaryScanner {
 
 
 public static void main (String []args){
- DictionaryScanner.compareWord( "CAT" ,"main.Dictionary");
+	new code.DictionaryScanner().compareWord("", );
+//DictionaryScanner.compareWord( "CAT","/Dictionary.txt");
 
 	
 }
