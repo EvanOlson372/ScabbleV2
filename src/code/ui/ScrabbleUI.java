@@ -32,7 +32,7 @@ public class ScrabbleUI implements Observer, Runnable {
 	private int _c = 0;
 	
 	public ScrabbleUI(){
-		 	_dataStruct = new Scrabble();
+		 _dataStruct = new Scrabble();
 		 _boardButtons = new ArrayList<JButton>();
 		 _rackButtons = new ArrayList<JButton>();
 		 _dataStruct.addPlayerName(_players);
