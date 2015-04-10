@@ -19,11 +19,10 @@ public class RackButtonHandler implements ActionListener  {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		Player p = _dataStruct.getCurrentPlayer();
 		
-		if(_i/12 == _dataStruct.getTurn()){
-			
+		if(_i/12 == _dataStruct.getTurn() && _i < p.getRack().getSize() ){
 			System.out.println("test");
-			Player p = _dataStruct.getCurrentPlayer();
 			_dataStruct.setSelectedTile(p.pickTile(_i));
 		}
 		else

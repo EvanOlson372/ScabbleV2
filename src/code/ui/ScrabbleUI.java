@@ -28,6 +28,7 @@ public class ScrabbleUI implements Observer, Runnable {
 	private ArrayList<JButton> _boardButtons;
 	private ArrayList<JButton> _rackButtons;
 	private static ArrayList<String> _players;
+	private int _c = 0;
 	
 	public ScrabbleUI(){
 		 	_dataStruct = new Scrabble();
@@ -104,8 +105,9 @@ public class ScrabbleUI implements Observer, Runnable {
 			b.setPreferredSize(new Dimension(30,30));
 			b.setOpaque(true);
 			panel.add(b);
-			b.addActionListener(new RackButtonHandler(i, _dataStruct));
+			b.addActionListener(new RackButtonHandler(_c, _dataStruct));
 			_rackButtons.add(b);
+			_c++;
 		}
 		return panel;
 	}

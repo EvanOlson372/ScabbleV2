@@ -60,4 +60,8 @@ public class Player {
 		_score = _score + i;
 		return _score;
 	}
+	public TileRack getRack(){
+		return _rack;
+	}
+	
 }
