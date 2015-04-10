@@ -16,7 +16,7 @@ public class PlayerTest {
     private void testInitialScore(int expected) {
     	Inventory i = new Inventory();
     	Color c = new Color(1);// the "1" is just a place holder 
-		Player p = new Player(i);
+        Player p = new Player(i);
         int actual = p.getScore();
         
         assertTrue("I tested whether or not the Player's score was"+expected+"and it should have returned"+actual, actual==expected);
@@ -31,8 +31,9 @@ public class PlayerTest {
     private void testAddScore(int original, int add, int total) {
     	Inventory i = new Inventory();
     	Color c = new Color(1);// the "1" is just a place holder 
-		Player p = new Player(i);
+        Player p = new Player(i);
         int actual = p.addScore(original, add);
+        
         assertTrue("I tested whether or not the Player's score was"+total+"after adding"+original+"and"+add+"and it should have returned"+actual, actual==total);
     }
 
