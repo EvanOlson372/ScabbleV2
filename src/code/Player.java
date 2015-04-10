@@ -35,32 +35,17 @@ public class Player {
 		return _score;
 	}
 	
-	/**
-<<<<<<< Updated upstream
-	 * chooses a tile from the payers RACK!!
-=======
-	 *Leonardo Evangelista
-	 * @return Players Color
->>>>>>> Stashed changes
-	 */
+
 	public Tile pickTile(int i){
 		return _rack.removeTile(i);
 	}
-	/**
-<<<<<<< Updated upstream
-	 * looks at tile without changing anything
-=======
-	 * Leonardo Evangelista
-	 * sets players color
-	 * @param color
->>>>>>> Stashed changes
-	 */
+
+
 	public Tile getTile(int i){
 	return _rack.get(i);	
 	}
 	
-<<<<<<< Updated upstream
-=======
+
 	
 	public Tile playTile(){
 		return _rack.removeTile(_rack.getSize()-1);
@@ -70,7 +55,6 @@ public class Player {
 		return _rack;
 	}
 
->>>>>>> Stashed changes
 	/**
 	 * Adds the new points to the original score
 	 * 
