@@ -19,8 +19,7 @@ import javax.swing.SwingUtilities;
 import code.Scrabble;
 import code.Player;
 import code.TileRack;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
+
 
 public class ScrabbleUI implements Observer, Runnable {
 	
