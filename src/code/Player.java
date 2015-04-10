@@ -55,6 +55,7 @@ public class Player {
 		return _rack;
 	}
 
+
 	/**
 	 * Adds the new points to the original score
 	 * 
