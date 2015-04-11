@@ -36,7 +36,11 @@ public class BoardButtonHandler implements ActionListener {
 			_dataStruct.getSelectedTile().setBool(false);
 			_dataStruct.setSelectedTile(null);
 		}
-	
+	/** 
+	 * for the whole class 
+	 * Evan Olson
+	 * Leonardo Evangelista
+	 */
 	}
 	
 	

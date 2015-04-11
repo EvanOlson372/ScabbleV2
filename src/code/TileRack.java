@@ -73,4 +73,9 @@ public class TileRack {
 	public Tile get(int i) {
 		return _rack.get(i);
 	}
+	/** 
+	 * for addTile and get methods 
+	 * Driver Leonardo Evangelista
+	 * Navigator Evan Olson
+	 */
 }
