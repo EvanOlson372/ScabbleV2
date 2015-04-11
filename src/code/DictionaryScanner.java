@@ -11,6 +11,9 @@ public class DictionaryScanner {
 	* and validates the word played. The compareWord method takes in the word
 	* played as well as the filepath to our Dictionary Document. It scans the file
 	* and adds to to an array list which is used for comparison.
+	* 
+	* Kelly Pleviek 
+	* 
 	*/
 	public static boolean compareWord (String word,String filep){
 		

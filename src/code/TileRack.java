@@ -66,7 +66,10 @@ public class TileRack {
 	public int getSize() {
 		return _rack.size();
 	}
-
+	public void addTile(Tile t){
+		_rack.add(t);
+	}
+	
 	public Tile get(int i) {
 		return _rack.get(i);
 	}

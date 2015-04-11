@@ -63,5 +63,8 @@ public class Player {
 	public TileRack getRack(){
 		return _rack;
 	}
+	public void addTileToRack(Tile t){
+		_rack.addTile(t);
+	}
 	
 }

@@ -33,6 +33,7 @@ public class BoardButtonHandler implements ActionListener {
 			JButton temp = (JButton) e.getSource();
 			temp.setText(Character.toString(_dataStruct.getSelectedTile().getChar())+ ":"+ Integer.toString(_dataStruct.getSelectedTile().getValue()));
 			_dataStruct.addToWordBeingPlayed(_dataStruct.getSelectedTile().getChar());
+			_dataStruct.getSelectedTile().setBool(false);
 			_dataStruct.setSelectedTile(null);
 		}
 	

@@ -10,6 +10,7 @@ public class Tile {
 	 * Stores the point value of the tile.
 	 */
 	private int _pointValue;
+	private boolean _bool;
 	
 	/**
 	 * Class constructor.
@@ -38,5 +39,11 @@ public class Tile {
 	 */
 	public int getValue(){
 		return _pointValue;
+	}
+	public boolean getBool(){
+		return _bool;
+	}
+	public void setBool(boolean b){
+		_bool = b;
 	}
 }
