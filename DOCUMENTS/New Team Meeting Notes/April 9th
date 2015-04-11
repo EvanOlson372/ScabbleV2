@@ -1,0 +1,7 @@
+April 9
+Start 7 pm
+Evan and Leonarod reworked UI because of cluter problems that were confusing us when trying to get things to work together 
+this includes BoardButtonHAndler,RackButonHandler,ScrabbleUI
+added several accesors and mutators in a lot of the data structure code to give us information that we needed to display and change as the game was played
+we felt that we needed to completley restructure the program because of a lot of spaghetti coding that happened days prior becuase of time constraints. 
+Ended 2am
