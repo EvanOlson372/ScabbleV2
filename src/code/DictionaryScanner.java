@@ -12,7 +12,7 @@ public class DictionaryScanner {
 	* played as well as the filepath to our Dictionary Document. It scans the file
 	* and adds to to an array list which is used for comparison.
 	* 
-	* Kelly Pleviek 
+	* Kelly Plevniak 
 	* 
 	*/
 	public static boolean compareWord (String word,String filep){

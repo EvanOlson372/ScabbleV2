@@ -162,7 +162,7 @@ public class Scrabble extends Observable {
 	 * counts up word score
 	 */
 	public int countWordScore(String s){
-		int score = 0;
+		  int score = 0;
 		
 		for(int i = 0; i < s.length(); i++ ){
 			char c = s.charAt(i);
@@ -191,6 +191,10 @@ public class Scrabble extends Observable {
 	public Inventory getInventory(){
 		return _inv;
 	}
+	public Color getColor(){
+		return _color;
+	}
+
+	}
 	
-	
-}
+

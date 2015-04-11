@@ -73,4 +73,7 @@ public class TileRack {
 	public Tile get(int i) {
 		return _rack.get(i);
 	}
+	public ArrayList<Tile> getRack(){
+		return _rack;
+	}
 }
