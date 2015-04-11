@@ -62,9 +62,17 @@ public class Player {
 	}
 	public TileRack getRack(){
 		return _rack;
+		/**
+		 * Driver Leonardo Evanelista
+		 * Navigator Evan Olson
+		 */
 	}
 	public void addTileToRack(Tile t){
 		_rack.addTile(t);
+		/**
+		 * Driver Leonardo Evangelista
+		 * Navigator Evan Olson
+		 */
 	}
 	
 }

@@ -42,8 +42,17 @@ public class Tile {
 	}
 	public boolean getBool(){
 		return _bool;
+		/**
+		 * Driver Leonardo Evangelista
+		 * Navigator Evan Olson
+		 * 
+		 */
 	}
 	public void setBool(boolean b){
 		_bool = b;
+		/**
+		 * Driver Leonardo Evangelista
+		 * Navigator Evan Olson
+		 */
 	}
 }

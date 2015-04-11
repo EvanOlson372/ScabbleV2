@@ -131,7 +131,11 @@ public class ScrabbleUI implements Observer, Runnable {
 		}
 	*/	
 	}
-
+/**
+ * for whole class 
+ * Driver Leonardo Evangelista
+ * Navigator Evan Olson
+ */
 	
 
 	

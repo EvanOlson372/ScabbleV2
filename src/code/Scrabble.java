@@ -76,6 +76,10 @@ public class Scrabble extends Observable {
 	public Tile getSelectedTile(){
 		return _tileHolder;
 	}
+	/**
+	 * 
+	 * 
+	 */
 	
 	/**
 	 * Selects current tile
@@ -160,6 +164,14 @@ public class Scrabble extends Observable {
 	}
 	/**
 	 * counts up word score
+	 */
+	
+	/**
+	 * added all but two accessors and mutators 
+	 * Driver Evan Olson
+	 * Navigator Leonardo Evangelista
+	 * @param s
+	 * @return
 	 */
 	public int countWordScore(String s){
 		  int score = 0;
