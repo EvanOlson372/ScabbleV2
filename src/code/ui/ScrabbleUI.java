@@ -115,7 +115,6 @@ public class ScrabbleUI implements Observer, Runnable {
 			b.addActionListener(new RackButtonHandler(_c, _dataStruct));
 			_rackButtons.add(b);
 			_c++;
-			System.out.println(_c);
 		}
 		return panel;
 	}
