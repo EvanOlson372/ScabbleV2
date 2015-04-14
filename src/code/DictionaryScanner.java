@@ -3,7 +3,6 @@ package code;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
 import java.util.Scanner;
 
 public class DictionaryScanner {
@@ -26,12 +25,13 @@ public class DictionaryScanner {
 		//static method which returns a string from a scanned file
 		
 		String file= readMe(filep); 
-		System.out.println("read me creates: "+ '\n'+ file);
+		//System.out.println("read me creates: "+ '\n'+ file);
 		
 		// iterates through the file and adds words to the array list
 		
 		for (int i= 0; i<file.length();i++){ 
 			char ch = file.charAt(i);
+			ch = Character.toUpperCase(ch);
         	if(ch >='A'&& ch<='Z'){
         		dWord= dWord+ch;
         	}
@@ -40,7 +40,7 @@ public class DictionaryScanner {
         		dWord = "";
         	}
 		}
-          System.out.println(dictionary);
+         // System.out.println(dictionary);
         	if( dictionary.contains(word)){
         		  there = true;
         		
@@ -85,7 +85,7 @@ public class DictionaryScanner {
 
 
 public static void main (String []args){
-DictionaryScanner.compareWord( "CAT","src/code/Dictionary");
+DictionaryScanner.compareWord( "MARKET","src/code/Dictionary");
 
 	
 }
