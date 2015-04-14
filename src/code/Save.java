@@ -23,7 +23,7 @@ public class Save {
 		writer = new PrintWriter(filename, "UTF-8");
 		writer.println("20 20");
 		writer.println("src/code/Dictionary");
-		writer.println("["+_dataStruct.getPlayerName(i), _dataStruct.getColor(),_player.getScore(),_player.getRack()+"]");
+		writer.println("["+_dataStruct.getPlayerName(i) + _dataStruct.getColor() + _player.getScore() + _player.getRack()+"]");
 		writer.println(_dataStruct.getInventory());
 		writer.println(_dataStruct.getBoard());
 		
