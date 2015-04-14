@@ -28,7 +28,7 @@ public class RackButtonHandler implements ActionListener  {
 			b.setText("");
 		}
 		else{
-		System.out.println("Can't do that");
+		System.out.println("That's not yours");
 		
 		}
 		
