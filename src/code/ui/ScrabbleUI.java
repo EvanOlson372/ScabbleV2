@@ -119,6 +119,11 @@ public class ScrabbleUI implements Observer, Runnable {
 		}
 		return panel;
 	}
+	
+	public void redrawRack(){
+		
+	}
+	
 
 	@Override
 	public void update(java.util.Observable o, Object arg) {

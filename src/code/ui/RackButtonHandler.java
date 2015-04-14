@@ -3,6 +3,8 @@ package code.ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+
 import code.Player;
 import code.Scrabble;
 
@@ -22,9 +24,10 @@ public class RackButtonHandler implements ActionListener  {
 		Player p = _dataStruct.getCurrentPlayer();
 		if(_i/12 == _dataStruct.getTurn()){
 			_dataStruct.setSelectedTile(p.pickTile(_i%12));
+			JButton b = (JButton) e.getSource();
+			b.setText("");
 		}
 		else{
-			
 		System.out.println("Can't do that");
 		
 		}
