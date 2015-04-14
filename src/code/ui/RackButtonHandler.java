@@ -25,7 +25,7 @@ public class RackButtonHandler implements ActionListener  {
 		}
 		else{
 			
-		System.out.println("Fuck Off");
+		System.out.println("Can't do that");
 		
 		}
 		
