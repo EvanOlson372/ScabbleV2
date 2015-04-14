@@ -46,7 +46,7 @@ public class Board {
 	 * @return
 	 */
 	public Tile getTile(int x, int y){
-		return _board[x][y];
+			return _board[x][y];
 	}
-
+	
 }
