@@ -47,9 +47,7 @@ public class NextTurnButtonHandler implements ActionListener {
 		else  {
 			
 			for (int i= 0;i<20;i++){
-				System.out.println("i:"+i);
 				for (int j = 0;j<20;j++){
-					System.out.print(j);
 					if(_b.getTile(i, j) != null){
 						
 						if (_b.getTile(i, j).getBool()== false){

@@ -112,18 +112,14 @@ public class ScrabbleUI implements Observer, Runnable {
 			b.setPreferredSize(new Dimension(30,30));
 			b.setOpaque(true);
 			panel.add(b);
-			b.addActionListener(new RackButtonHandler(_c, _dataStruct));
+			b.addActionListener(new RackButtonHandler(_c, _dataStruct, _rackButtons));
 			_rackButtons.add(b);
 			_c++;
 		}
 		return panel;
 	}
 	
-	public void redrawRack(int turn){
-		
-		
-		
-	}
+	
 	
 
 	@Override
