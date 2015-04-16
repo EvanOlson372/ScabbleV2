@@ -59,9 +59,6 @@ public class ScrabbleUI implements Observer, Runnable {
 	@Override
 	public void run() {
 		//commit
-		_dataStruct.addToNumberOfPlayers();
-		_dataStruct.addToNumberOfPlayers();
-		_dataStruct.addToNumberOfPlayers();
 		_dataStruct.addNewPlayer();
 		_dataStruct.addNewPlayer();
 		_dataStruct.addNewPlayer();
@@ -88,7 +85,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
 		
-		for(int i = 0; i <_dataStruct.getNumberOfPlayer(); i++ ){
+		for(int i = 0; i <_dataStruct.getNumberOfPlayers(); i++ ){
 			southPanel.add(addPlayerPanel(_dataStruct.getPlayer(i),_dataStruct.getPlayerName(i)));
 		}
 		southPanel.add(_nextTurnButton);

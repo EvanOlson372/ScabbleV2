@@ -8,6 +8,7 @@ import javax.swing.JButton;
 
 import code.Player;
 import code.Scrabble;
+import code.Tile;
 
 public class RackButtonHandler implements ActionListener  {
 	int _c;
@@ -26,6 +27,7 @@ public class RackButtonHandler implements ActionListener  {
 		Player p = _dataStruct.getCurrentPlayer();
 		if(_c/12 == _dataStruct.getTurn() && _c%12 < p.getRack().getSize()){
 			_dataStruct.setSelectedTile(p.pickTile(_c%12));
+			
 			redrawRack();
 			
 		}
@@ -38,11 +40,14 @@ public class RackButtonHandler implements ActionListener  {
 	
 	public void redrawRack(){
 		Player p = _dataStruct.getCurrentPlayer();
-		for(int i = 0; i<(_c%12); i++){
-			System.out.print(i);
-			_rackButtons.get(i*_dataStruct.getTurn()).setText(Character.toString(p.getRack().get(i).getChar())+":"+ Integer.toString(p.getTile(i).getValue()));
+		for(int i = 0; i<12; i++){
+			System.out.print(i*_dataStruct.getTurn());
+			if(i>p.getRack().getSize())
+				_rackButtons.get(i*_dataStruct.getTurn()).setText(" ");
+
 			
 		}
+		
 	}
 	
 	

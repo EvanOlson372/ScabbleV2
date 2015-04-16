@@ -60,7 +60,7 @@ public class Scrabble extends Observable {
 		_board = new Board();
 		_players = new ArrayList<Player>();
 		_numberOfPlayers = 0;
-		_turn = 0;
+		_turn = 1;
 		_wordBeingPlayed = "";
 	}
 	/**
@@ -68,6 +68,7 @@ public class Scrabble extends Observable {
 	 */
 	public void addNewPlayer(){
 		_players.add(new Player(_inv));
+		_numberOfPlayers++;
 	}
 	
 	/**
@@ -95,7 +96,7 @@ public class Scrabble extends Observable {
 	public void nextTurn(){
 		_turn++;
 		if(_turn == _numberOfPlayers)
-			_turn = 0;
+			_turn = 1;
 	}
 	
 	/**
@@ -117,16 +118,11 @@ public class Scrabble extends Observable {
 	public Board getBoard(){
 		return _board;
 	}
-	/**
-	 * sets number of players
-	 */
-	public void addToNumberOfPlayers(){
-		_numberOfPlayers++;
-	}
+
 	/**
 	 * gets number of players
 	 */
-	public int getNumberOfPlayer(){
+	public int getNumberOfPlayers(){
 		return _numberOfPlayers;
 		
 	}
