@@ -52,6 +52,7 @@ public class Scrabble extends Observable {
 	 * Word holder
 	 */
 	String _wordBeingPlayed;
+	
 	/**
 	 * Class constructor
 	 */
@@ -60,7 +61,7 @@ public class Scrabble extends Observable {
 		_board = new Board();
 		_players = new ArrayList<Player>();
 		_numberOfPlayers = 0;
-		_turn = 1;
+		_turn = 0;
 		_wordBeingPlayed = "";
 	}
 	/**
@@ -96,7 +97,7 @@ public class Scrabble extends Observable {
 	public void nextTurn(){
 		_turn++;
 		if(_turn == _numberOfPlayers)
-			_turn = 1;
+			_turn = 0;
 	}
 	
 	/**
@@ -162,6 +163,8 @@ public class Scrabble extends Observable {
 	 * counts up word score
 	 */
 	
+	
+	
 	/**
 	 * added all but two accessors and mutators 
 	 * Driver Evan Olson
@@ -193,16 +196,22 @@ public class Scrabble extends Observable {
 		
 		return score;
 	}
+	
+	
 	/**
 	 * gets the current tile bag
 	 */
+	
 	public Inventory getInventory(){
 		return _inv;
 	}
-	public Color getColor(){
-		return _color;
+	public String getColor() {
+		// TODO Auto-generated method stub
+		return null;
 	}
+	
+	
 
-	}
+}
 	
 

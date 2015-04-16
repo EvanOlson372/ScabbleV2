@@ -27,22 +27,22 @@ public class RackButtonHandler implements ActionListener  {
 		Player p = _dataStruct.getCurrentPlayer();
 		if(_c/12 == _dataStruct.getTurn() && _c%12 < p.getRack().getSize()){
 			_dataStruct.setSelectedTile(p.pickTile(_c%12));
-			
-			redrawRack();
+			//redrawRack();
 			
 		}
 		else{
 		System.out.println("That's not yours");
-		
 		}
 		
-		}
+	}
+	
 	
 	public void redrawRack(){
 		Player p = _dataStruct.getCurrentPlayer();
 		for(int i = 0; i<12; i++){
 			System.out.print(i*_dataStruct.getTurn());
 			if(i>p.getRack().getSize())
+			System.out.print(i*_dataStruct.getTurn());	
 				_rackButtons.get(i*_dataStruct.getTurn()).setText(" ");
 
 			
