@@ -26,15 +26,13 @@ public class ScrabbleUI implements Observer, Runnable {
 	
 	private static code.Scrabble _dataStruct;
 	private ArrayList<JButton> _boardButtons;
-	private ArrayList<JButton> _rackButtons;
+	private JButton [][] _rackButtons;
 	private JButton _nextTurnButton;
 	private static ArrayList<String> _players;
-	private int _c = 0;
 	
 	public ScrabbleUI(){
 		 _dataStruct = new Scrabble();
 		 _boardButtons = new ArrayList<JButton>();
-		 _rackButtons = new ArrayList<JButton>();
 		 _dataStruct.addPlayerName(_players);
 	}
 
@@ -62,7 +60,9 @@ public class ScrabbleUI implements Observer, Runnable {
 		_dataStruct.addNewPlayer();
 		_dataStruct.addNewPlayer();
 		_dataStruct.addNewPlayer();
-				
+		
+		_rackButtons = new JButton[_dataStruct.getNumberOfPlayers()][12];
+		
 		JFrame window = new JFrame("Scrabble");
 		JPanel northPanel = new JPanel();
 		JPanel southPanel = new JPanel();
@@ -86,7 +86,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
 		
 		for(int i = 0; i <_dataStruct.getNumberOfPlayers(); i++ ){
-			southPanel.add(addPlayerPanel(_dataStruct.getPlayer(i),_dataStruct.getPlayerName(i)));
+			southPanel.add(addPlayerPanel(_dataStruct.getPlayer(i),_dataStruct.getPlayerName(i), i));
 		}
 		southPanel.add(_nextTurnButton);
 		window.add(northPanel, BorderLayout.NORTH);
@@ -99,28 +99,51 @@ public class ScrabbleUI implements Observer, Runnable {
 	}
 
 	
-	public JPanel addPlayerPanel(Player p, String name){
+	public JPanel addPlayerPanel(Player p, String name, int r){
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel(name + ":" + Integer.toString(p.getScore()));
 		panel.add(label);
 		panel.setLayout(new FlowLayout());
-		for(int i = 0;i<12; i++){
-			JButton b = new JButton(Character.toString(p.getTile(i).getChar()) +":"+ Integer.toString(p.getTile(i).getValue()) );
-			b.setPreferredSize(new Dimension(30,30));
-			b.setOpaque(true);
-			panel.add(b);
-			b.addActionListener(new RackButtonHandler(_c, _dataStruct, _rackButtons));
-			_rackButtons.add(b);
-			_c++;
-		}
+		
+			for(int c = 0;c<12; c++){
+				JButton b = new JButton(Character.toString(p.getTile(c).getChar()) +":"+ Integer.toString(p.getTile(c).getValue()) );
+				b.setPreferredSize(new Dimension(30,30));
+				b.setOpaque(true);
+				panel.add(b);
+				b.addActionListener(new RackButtonHandler(r,c, _dataStruct, _rackButtons));
+				_rackButtons[r][c] = b;
+			
+			}
+		
 		return panel;
 	}
 	
+	public void redrawRack(){
+		Player p = _dataStruct.getCurrentPlayer();
+		
+			for(int c = 0; c<12; c++){
+				if(c<p.getRack().getSize())
+				{
+					JButton b = _rackButtons[_dataStruct.getTurn()][c];
+					b.setText(Character.toString(_dataStruct.getCurrentPlayer().getRack().get(c).getChar()) + ":" + Integer.toString(p.getTile(c).getValue()));
+				}
+				else{
+					JButton b = _rackButtons[_dataStruct.getTurn()][c];
+					b.setText(" ");
+					
+				}
+					
+			
+			}
+		
+	}
 	
 	
 
 	@Override
 	public void update(java.util.Observable o, Object arg) {
+	//redrawRack();
+		
 	/*
 		String s = _dataStruct.toString();
 		System.out.print(s);

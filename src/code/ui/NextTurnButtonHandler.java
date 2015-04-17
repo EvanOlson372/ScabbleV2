@@ -63,8 +63,12 @@ public class NextTurnButtonHandler implements ActionListener {
 			 * Navigator Evan Olson
 			 */
 			}
+			
 		System.out.println(p.getScore());
 		_dataStruct.nextTurn();
 		}
 	}
+	
+	
+	
 }

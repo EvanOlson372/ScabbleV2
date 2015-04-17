@@ -2,6 +2,7 @@ package code.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -11,11 +12,13 @@ import code.Scrabble;
 import code.Tile;
 
 public class RackButtonHandler implements ActionListener  {
+	int _r;
 	int _c;
 	Scrabble _dataStruct;
-	ArrayList<JButton> _rackButtons;
+	JButton [][] _rackButtons;
 	
-	public RackButtonHandler(int c, Scrabble dataStruct, ArrayList<JButton> rackButtons){
+	public RackButtonHandler(int r, int c, Scrabble dataStruct, JButton [][] rackButtons){
+		_r = r;
 		_c = c;
 		_dataStruct = dataStruct;
 		_rackButtons = rackButtons;
@@ -27,7 +30,7 @@ public class RackButtonHandler implements ActionListener  {
 		Player p = _dataStruct.getCurrentPlayer();
 		if(_c/12 == _dataStruct.getTurn() && _c%12 < p.getRack().getSize()){
 			_dataStruct.setSelectedTile(p.pickTile(_c%12));
-			//redrawRack();
+			redrawRack();
 			
 		}
 		else{
@@ -39,14 +42,21 @@ public class RackButtonHandler implements ActionListener  {
 	
 	public void redrawRack(){
 		Player p = _dataStruct.getCurrentPlayer();
-		for(int i = 0; i<12; i++){
-			System.out.print(i*_dataStruct.getTurn());
-			if(i>p.getRack().getSize())
-			System.out.print(i*_dataStruct.getTurn());	
-				_rackButtons.get(i*_dataStruct.getTurn()).setText(" ");
-
+		
+			for(int c = 0; c<12; c++){
+				if(c<p.getRack().getSize())
+				{
+					JButton b = _rackButtons[_dataStruct.getTurn()][c];
+					b.setText(Character.toString(_dataStruct.getCurrentPlayer().getRack().get(c).getChar()) + ":" + Integer.toString(p.getTile(c).getValue()));
+				}
+				else{
+					JButton b = _rackButtons[_dataStruct.getTurn()][c];
+					b.setText(" ");
+					
+				}
+					
 			
-		}
+			}
 		
 	}
 	
