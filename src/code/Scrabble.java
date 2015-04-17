@@ -88,7 +88,6 @@ public class Scrabble extends Observable {
 	 */
 	public void setSelectedTile(Tile t){
 		_tileHolder = t;
-		
 	}
 
 	/**
@@ -98,6 +97,7 @@ public class Scrabble extends Observable {
 		_turn++;
 		if(_turn == _numberOfPlayers)
 			_turn = 0;
+		_wordBeingPlayed = "";
 	}
 	
 	/**
@@ -157,6 +157,8 @@ public class Scrabble extends Observable {
 	 * Gets word that was played
 	 */
 	public String getWordPlayed(){
+		setChanged();      // defined in superclass
+		notifyObservers(); // defined in superclass
 		return _wordBeingPlayed;
 	}
 	/**

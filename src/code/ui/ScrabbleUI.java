@@ -32,6 +32,7 @@ public class ScrabbleUI implements Observer, Runnable {
 	
 	public ScrabbleUI(){
 		 _dataStruct = new Scrabble();
+		 _dataStruct.addObserver(this);
 		 _boardButtons = new ArrayList<JButton>();
 		 _dataStruct.addPlayerName(_players);
 	}
@@ -141,8 +142,8 @@ public class ScrabbleUI implements Observer, Runnable {
 	
 
 	@Override
-	public void update(java.util.Observable o, Object arg) {
-	//redrawRack();
+	public void update(java.util.Observable o, Object _dataStruct) {
+		redrawRack();
 		
 	/*
 		String s = _dataStruct.toString();

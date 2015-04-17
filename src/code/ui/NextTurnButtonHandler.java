@@ -25,7 +25,7 @@ public class NextTurnButtonHandler implements ActionListener {
 		
 		Player p = _dataStruct.getCurrentPlayer();
 		DictionaryScanner ds = new DictionaryScanner();
-		System.out.println(p.getScore());
+		System.out.println(_dataStruct.getWordPlayed());
 		
 		
 		if(DictionaryScanner.compareWord(_dataStruct.getWordPlayed(), "src/code/Dictionary" ) == true)
@@ -35,6 +35,7 @@ public class NextTurnButtonHandler implements ActionListener {
 			
 				for (int i= 0;i<20;i++){
 					for (int j=0;j<20;i++){
+					System.out.print(_b.getTile(i, j));
 					_b.getTile(i, j).setBool(true);
 					}
 				}
@@ -63,8 +64,6 @@ public class NextTurnButtonHandler implements ActionListener {
 			 * Navigator Evan Olson
 			 */
 			}
-			
-		System.out.println(p.getScore());
 		_dataStruct.nextTurn();
 		}
 	}
