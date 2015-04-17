@@ -75,4 +75,11 @@ public class Player {
 		 */
 	}
 	
+	public void printRack(){
+		for(int i = 0; i<getRack().getSize();i++)
+		System.out.print(getRack().get(i).getChar());
+		
+		
+	}
+	
 }

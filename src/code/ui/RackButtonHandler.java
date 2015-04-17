@@ -57,6 +57,7 @@ public class RackButtonHandler implements ActionListener  {
 					
 			
 			}
+			p.printRack();
 		
 	}
 	

@@ -70,7 +70,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		_nextTurnButton = new JButton("End Turn");
 		_nextTurnButton.setPreferredSize(new Dimension(30, 60));
 		_nextTurnButton.setOpaque(true);
-		_nextTurnButton.addActionListener(new NextTurnButtonHandler(_dataStruct));
+		_nextTurnButton.addActionListener(new NextTurnButtonHandler(_dataStruct, _rackButtons));
 		
 		
 		northPanel.setLayout(new GridLayout(20,20, 1, 1));
