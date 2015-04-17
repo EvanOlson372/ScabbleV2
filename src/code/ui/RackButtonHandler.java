@@ -62,7 +62,6 @@ public class RackButtonHandler implements ActionListener  {
 	}
 	
 	
-	
 	/** 
 	 * for the whole class
 	 * Driver Leonardo Evangelista

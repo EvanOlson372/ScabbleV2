@@ -31,10 +31,10 @@ public class ScrabbleUI implements Observer, Runnable {
 	private static ArrayList<String> _players;
 	
 	public ScrabbleUI(){
-		 _dataStruct = new Scrabble();
-		 _dataStruct.addObserver(this);
-		 _boardButtons = new ArrayList<JButton>();
-		 _dataStruct.addPlayerName(_players);
+		_dataStruct = new Scrabble();
+		_dataStruct.addObserver(this);
+		_boardButtons = new ArrayList<JButton>();
+		_dataStruct.addPlayerName(_players);
 	}
 
 	public static void main(String[] args) {
@@ -70,7 +70,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		_nextTurnButton = new JButton("End Turn");
 		_nextTurnButton.setPreferredSize(new Dimension(30, 60));
 		_nextTurnButton.setOpaque(true);
-		_nextTurnButton.addActionListener(new NextTurnButtonHandler(_dataStruct, _rackButtons));
+		_nextTurnButton.addActionListener(new NextTurnButtonHandler(_dataStruct, _rackButtons, _boardButtons));
 		
 		
 		northPanel.setLayout(new GridLayout(20,20, 1, 1));

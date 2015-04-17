@@ -2,6 +2,7 @@ package code.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 
@@ -14,11 +15,13 @@ public class NextTurnButtonHandler implements ActionListener {
 
 	private Scrabble _dataStruct;
 	private JButton [][] _rackButtons;
+	private ArrayList<JButton> _boardButtons;
 	private int _row;
 	private int _col;
 	private Board _b;
 	
-	public NextTurnButtonHandler(Scrabble dataStruct, JButton [][] rackButtons){
+	public NextTurnButtonHandler(Scrabble dataStruct, JButton [][] rackButtons,  ArrayList<JButton> boardButtons){
+		_boardButtons = boardButtons;
 		_rackButtons = rackButtons;
 		_dataStruct = dataStruct;
 		_b = _dataStruct.getBoard();
@@ -75,6 +78,7 @@ public class NextTurnButtonHandler implements ActionListener {
 		}
 		
 		redrawRack();
+		redrawBoard();
 		_dataStruct.nextTurn();
 		
 	}
@@ -96,11 +100,24 @@ public class NextTurnButtonHandler implements ActionListener {
 					
 			
 			}
-			p.printRack();
 		
 	}
 	
-	
-	
-	
+	public void redrawBoard(){
+			for(int c = 0; c<400; c++){
+				JButton b = _boardButtons.get(c);
+				if(_b.getTile(c/20, c%20) != null)
+					b.setText(Character.toString(_b.getTile(c/20, c%20).getChar())+":"+Integer.toString(_b.getTile(c/20, c%20).getValue()));
+				else
+					b.setText("");
+			}
+		}
+		
+		
+		
+		
 }
+	
+	
+	
+
