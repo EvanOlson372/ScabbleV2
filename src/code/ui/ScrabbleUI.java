@@ -25,6 +25,7 @@ import javafx.beans.Observable;
 public class ScrabbleUI implements Observer, Runnable {
 	
 	private static code.Scrabble _dataStruct;
+	private ArrayList<JPanel> _playerPanels;
 	private ArrayList<JButton> _boardButtons;
 	private JButton [][] _rackButtons;
 	private JButton _nextTurnButton;
@@ -63,6 +64,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		_dataStruct.addNewPlayer();
 		
 		_rackButtons = new JButton[_dataStruct.getNumberOfPlayers()][12];
+		_playerPanels = new ArrayList<JPanel>();
 		
 		JFrame window = new JFrame("Scrabble");
 		JPanel northPanel = new JPanel();
@@ -70,7 +72,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		_nextTurnButton = new JButton("End Turn");
 		_nextTurnButton.setPreferredSize(new Dimension(30, 60));
 		_nextTurnButton.setOpaque(true);
-		_nextTurnButton.addActionListener(new NextTurnButtonHandler(_dataStruct, _rackButtons, _boardButtons));
+		_nextTurnButton.addActionListener(new NextTurnButtonHandler(_dataStruct, _rackButtons, _boardButtons, _playerPanels));
 		
 		
 		northPanel.setLayout(new GridLayout(20,20, 1, 1));
@@ -87,8 +89,13 @@ public class ScrabbleUI implements Observer, Runnable {
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
 		
 		for(int i = 0; i <_dataStruct.getNumberOfPlayers(); i++ ){
-			southPanel.add(addPlayerPanel(_dataStruct.getPlayer(i),_dataStruct.getPlayerName(i), i));
+			addPlayerPanel(_dataStruct.getPlayer(i),_dataStruct.getPlayerName(i), i);
 		}
+		for(int i = 0; i <_dataStruct.getNumberOfPlayers(); i++ ){
+			southPanel.add(_playerPanels.get(i));
+		}
+		
+		
 		southPanel.add(_nextTurnButton);
 		window.add(northPanel, BorderLayout.NORTH);
 		window.add(southPanel, BorderLayout.SOUTH);
@@ -100,7 +107,7 @@ public class ScrabbleUI implements Observer, Runnable {
 	}
 
 	
-	public JPanel addPlayerPanel(Player p, String name, int r){
+	public void addPlayerPanel(Player p, String name, int r){
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel(name + ":" + Integer.toString(p.getScore()));
 		panel.add(label);
@@ -116,7 +123,7 @@ public class ScrabbleUI implements Observer, Runnable {
 			
 			}
 		
-		return panel;
+		_playerPanels.add(panel);
 	}
 	
 	public void redrawRack(){

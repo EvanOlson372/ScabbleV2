@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import code.Board;
 import code.DictionaryScanner;
@@ -16,12 +18,14 @@ public class NextTurnButtonHandler implements ActionListener {
 	private Scrabble _dataStruct;
 	private JButton [][] _rackButtons;
 	private ArrayList<JButton> _boardButtons;
+	private ArrayList<JPanel> _playerPanels;
 	private int _row;
 	private int _col;
 	private Board _b;
 	
-	public NextTurnButtonHandler(Scrabble dataStruct, JButton [][] rackButtons,  ArrayList<JButton> boardButtons){
+	public NextTurnButtonHandler(Scrabble dataStruct, JButton [][] rackButtons,  ArrayList<JButton> boardButtons, ArrayList<JPanel> playerPanels){
 		_boardButtons = boardButtons;
+		_playerPanels = playerPanels;
 		_rackButtons = rackButtons;
 		_dataStruct = dataStruct;
 		_b = _dataStruct.getBoard();
@@ -79,6 +83,7 @@ public class NextTurnButtonHandler implements ActionListener {
 		
 		redrawRack();
 		redrawBoard();
+		showScore();
 		_dataStruct.nextTurn();
 		
 	}
@@ -112,7 +117,10 @@ public class NextTurnButtonHandler implements ActionListener {
 					b.setText("");
 			}
 		}
-		
+	public void showScore(){
+		JLabel jl =(JLabel) _playerPanels.get(_dataStruct.getTurn()).getComponent(0);
+		jl.setText(_dataStruct.getPlayerName(_dataStruct.getTurn())+ ":" +Integer.toString(_dataStruct.getCurrentPlayer().getScore()));
+	}
 		
 		
 		
