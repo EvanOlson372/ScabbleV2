@@ -68,7 +68,7 @@ public class Scrabble extends Observable {
 	 * Adds a new player to the game.
 	 */
 	public void addNewPlayer(){
-		_players.add(new Player(_inv));
+		_players.add(new Player(_inv,_color));
 		_numberOfPlayers++;
 	}
 	

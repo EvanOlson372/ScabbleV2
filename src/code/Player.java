@@ -3,7 +3,7 @@ package code;
 import java.awt.Color;
 
 public class Player {
-
+	private Color _c;
 	/**
 	 * Records the score.
 	 */
@@ -20,10 +20,11 @@ public class Player {
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv){
+	public Player(Inventory inv, Color c){
 		_score = 0;
 		//_inv = inv;
 		_rack = new TileRack(inv);
+		_c =c;
 	}
 	
 	/**
@@ -60,6 +61,8 @@ public class Player {
 		_score = _score + i;
 		return _score;
 	}
+	
+	
 	public TileRack getRack(){
 		return _rack;
 		/**
