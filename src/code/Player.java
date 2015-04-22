@@ -1,6 +1,7 @@
 package code;
 
 import java.awt.Color;
+import java.util.Random;
 
 public class Player {
 	private Color _c;
@@ -27,6 +28,16 @@ public class Player {
 		_c =c;
 	}
 	
+	public Color createColor(){
+	  Random rand = new Random();
+	  float r = rand.nextFloat();
+	  float g = rand.nextFloat();
+	  float b = rand.nextFloat();
+	  
+	  Color color = new Color (r,g,b);
+	  _c = color;
+	  return _c;
+	}
 	/**
 	 * Gets the int value of the Player's score.
 	 * 
@@ -84,5 +95,10 @@ public class Player {
 		
 		
 	}
-	
+	public Color getColor(){
+		return _c;
+	}
+	public void setColor(Color c){
+		_c =c;
+	}
 }
