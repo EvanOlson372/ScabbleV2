@@ -58,7 +58,7 @@ public class Scrabble extends Observable {
 	 */
 	public Scrabble(){
 		_inv = new Inventory();
-		_color =_p.getColor();
+		//_color =_p.getColor();
 		_board = new Board();
 		_players = new ArrayList<Player>();
 		_numberOfPlayers = 0;
@@ -69,7 +69,7 @@ public class Scrabble extends Observable {
 	 * Adds a new player to the game.
 	 */
 	public void addNewPlayer(){
-		_players.add(new Player(_inv,_color));
+		_players.add(new Player(_inv));
 		_numberOfPlayers++;
 	}
 	

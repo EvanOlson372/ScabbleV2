@@ -21,11 +21,10 @@ public class Player {
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv, Color c){
+	public Player(Inventory inv){
 		_score = 0;
-		//_inv = inv;
 		_rack = new TileRack(inv);
-		_c =c;
+		createColor();
 	}
 	
 	public void createColor(){
