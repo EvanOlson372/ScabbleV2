@@ -16,16 +16,18 @@ public class Save {
 	private static code.Scrabble _dataStruct;
 	private static code.Player _player;
 	
-	public void gameFileWrite(String filename){
+	public static void gameFileWrite(String filename){
 		PrintWriter writer = null;
 		int i=0;
 	    try{
 		writer = new PrintWriter(filename, "UTF-8");
 		writer.println("20 20");
-		writer.println("src/code/Dictionary");
+		writer.println("/src/code/Dictionary");
 		writer.println("["+_dataStruct.getPlayerName(i) + _dataStruct.getColor() + _player.getScore() + _player.getRack()+"]");
 		writer.println(_dataStruct.getInventory());
 		writer.println(_dataStruct.getBoard());
+		
+		//System.out.println("Filename:"+filename+ "File contains:" +writer);
 		
 		} catch (FileNotFoundException e) {
 			System.err.println("File not found and cannot be created: "+filename);
@@ -37,6 +39,10 @@ public class Save {
 		 writer.close();
 		}
 		
+	}
+	
+	public static void main (String []args){
+		Save.gameFileWrite("testFile");
 	}
 
 }
