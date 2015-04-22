@@ -28,7 +28,7 @@ public class Player {
 		_c =c;
 	}
 	
-	public Color createColor(){
+	public void createColor(){
 	  Random rand = new Random();
 	  float r = rand.nextFloat();
 	  float g = rand.nextFloat();
@@ -36,7 +36,7 @@ public class Player {
 	  
 	  Color color = new Color (r,g,b);
 	  _c = color;
-	  return _c;
+
 	}
 	/**
 	 * Gets the int value of the Player's score.

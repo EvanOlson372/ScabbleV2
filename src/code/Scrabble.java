@@ -13,7 +13,7 @@ import java.util.Random;
 public class Scrabble extends Observable {
 
 
-	
+	private Player _p;
 	/**
 	 * stores current selected tile
 	 */
@@ -58,6 +58,7 @@ public class Scrabble extends Observable {
 	 */
 	public Scrabble(){
 		_inv = new Inventory();
+		_color =_p.getColor();
 		_board = new Board();
 		_players = new ArrayList<Player>();
 		_numberOfPlayers = 0;
