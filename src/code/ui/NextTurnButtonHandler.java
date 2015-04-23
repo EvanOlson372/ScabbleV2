@@ -41,7 +41,7 @@ public class NextTurnButtonHandler implements ActionListener {
 		
 		if(DictionaryScanner.compareWord(_dataStruct.getWordPlayed(), "src/code/Dictionary" ) == true)
 		{
-			
+			_dataStruct.setLegitimateWord();
 			p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getWordPlayed()));
 			
 				for (int i= 0;i<20;i++){

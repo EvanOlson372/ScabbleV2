@@ -12,7 +12,8 @@ import java.util.Random;
 
 public class Scrabble extends Observable {
 
-
+	
+	
 	private Player _p;
 	/**
 	 * stores current selected tile
@@ -24,6 +25,10 @@ public class Scrabble extends Observable {
 	 */
 	private Inventory _inv;
 	
+	/**
+	 * after first turn flag
+	 */
+	public boolean _firstLegitimateWord;
 	/**
 	 * Stores color 
 	 */
@@ -51,7 +56,14 @@ public class Scrabble extends Observable {
 	/**
 	 * Word holder
 	 */
-	String _wordBeingPlayed;
+	public String _wordBeingPlayed;
+	
+	/**
+	 * stores letter locations on
+	 */
+	public ArrayList<Integer> _row;
+	public ArrayList<Integer> _col;
+	
 	
 	/**
 	 * Class constructor
@@ -59,12 +71,27 @@ public class Scrabble extends Observable {
 	public Scrabble(){
 		_inv = new Inventory();
 		//_color =_p.getColor();
+		_row = new ArrayList<Integer>();
+		_col = new ArrayList<Integer>();
 		_board = new Board();
 		_players = new ArrayList<Player>();
+		_firstLegitimateWord = false;
 		_numberOfPlayers = 0;
 		_turn = 0;
 		_wordBeingPlayed = "";
 	}
+	
+	/**
+	 * sets that the first legitimate wiord has been played
+	 * 
+	 */
+	public void setLegitimateWord(){
+		_firstLegitimateWord = true;
+	}
+	public boolean getLegitamateWord(){
+		return _firstLegitimateWord ; 
+	}
+	
 	/**
 	 * Adds a new player to the game.
 	 */
@@ -80,9 +107,13 @@ public class Scrabble extends Observable {
 		return _tileHolder;
 	}
 	/**
-	 * 
+	 * when a letter is played this stores its location in the letter location array
 	 * 
 	 */
+	public void addToLocation(int r, int c){
+		_row.add(r);
+		_col.add(c);
+	}
 	
 	/**
 	 * Selects current tile
@@ -154,10 +185,34 @@ public class Scrabble extends Observable {
 	public void addToWordBeingPlayed(char c){
 		_wordBeingPlayed = _wordBeingPlayed + c;
 	}
+
 	/**
 	 * Gets word that was played
 	 */
 	public String getWordPlayed(){
+		System.out.println(_row);
+		System.out.println(_col);
+		
+			int r = _row.get(0);
+			int c = _col.get(0);
+			int n = 0;
+			int p = 0;
+			
+		for(int i = 0; i < _row.size(); i++){		
+			if(r == _row.get(i))
+				n++;
+			if(c == _col.get(i))
+				p++;
+		}
+		
+		if(n == _row.size()){
+			
+		}
+		if(c == _col.size()){
+			
+		}
+		
+		
 		setChanged();      // defined in superclass
 		notifyObservers(); // defined in superclass
 		return _wordBeingPlayed;
