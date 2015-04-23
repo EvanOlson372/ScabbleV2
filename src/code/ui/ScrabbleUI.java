@@ -115,7 +115,7 @@ public class ScrabbleUI implements Observer, Runnable {
 		
 			for(int c = 0;c<12; c++){
 				JButton b = new JButton(Character.toString(p.getTile(c).getChar()) +":"+ Integer.toString(p.getTile(c).getValue()) );
-				b.setPreferredSize(new Dimension(30,30));
+				b.setPreferredSize(new Dimension(60,30));
 				b.setForeground(p.getColor());
 				b.setOpaque(true);
 				panel.add(b);

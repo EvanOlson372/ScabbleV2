@@ -5,6 +5,7 @@ package code;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Observable;
 import java.util.Random;
 import java.util.ArrayList;
@@ -130,6 +131,8 @@ public class Scrabble extends Observable {
 		if(_turn == _numberOfPlayers)
 			_turn = 0;
 		_wordBeingPlayed = "";
+		_row.clear();
+		_col.clear();
 	}
 	
 	/**
@@ -179,44 +182,60 @@ public class Scrabble extends Observable {
 	public Player getPlayer(int i){
 		return _players.get(i);
 	}
-	/**
-	 * adds letter to word being played
-	 */
-	public void addToWordBeingPlayed(char c){
-		_wordBeingPlayed = _wordBeingPlayed + c;
-	}
 
 	/**
 	 * Gets word that was played
 	 */
 	public String getWordPlayed(){
-		System.out.println(_row);
-		System.out.println(_col);
-		
-			int r = _row.get(0);
-			int c = _col.get(0);
-			int n = 0;
-			int p = 0;
-			
-		for(int i = 0; i < _row.size(); i++){		
-			if(r == _row.get(i))
-				n++;
-			if(c == _col.get(i))
-				p++;
-		}
-		
-		if(n == _row.size()){
-			
-		}
-		if(c == _col.size()){
-			
-		}
-		
-		
-		setChanged();      // defined in superclass
-		notifyObservers(); // defined in superclass
+		//setChanged();      // defined in superclass
+		//notifyObservers(); // defined in superclass
 		return _wordBeingPlayed;
 	}
+	
+	/**
+	 * Creates word that was played
+	 * 
+	 * 
+	 */
+	public void createWordPlayed(){
+		Collections.sort(_row);
+		Collections.sort(_col);
+		int r = 0;
+		int c = 0;
+		int i = 0;
+		
+		for(i = 0; i<_row.size(); i++){
+			if(_row.get(0) == _row.get(i))
+				r++;
+			if(_col.get(0) == _col.get(i))
+				c++;
+		}
+		
+		if(r == _row.size()){
+			i = 0;
+			while(_board.getTile(_row.get(0), i) == null){
+				i++;	
+			}
+			while(_board.getTile(_row.get(0), i) != null){
+				_wordBeingPlayed = _wordBeingPlayed + _board.getTile(_row.get(0), i).getChar();
+				i++;
+			}
+		}		
+		
+		if(c == _col.size()){
+			i = 0;
+			while(_board.getTile(i, _col.get(0)) == null){
+				i++;
+			}
+			while(_board.getTile(i, _col.get(0)) != null){
+				_wordBeingPlayed = _wordBeingPlayed + _board.getTile(i, _col.get(0)).getChar();
+				i++;
+			}
+		}
+	}
+	
+	
+	
 	/**
 	 * counts up word score
 	 */

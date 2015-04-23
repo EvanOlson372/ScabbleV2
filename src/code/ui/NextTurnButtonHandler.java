@@ -36,9 +36,9 @@ public class NextTurnButtonHandler implements ActionListener {
 		
 		Player p = _dataStruct.getCurrentPlayer();
 		DictionaryScanner ds = new DictionaryScanner();
-
+		_dataStruct.createWordPlayed();
 		
-		
+		System.out.println(_dataStruct.getWordPlayed());
 		if(DictionaryScanner.compareWord(_dataStruct.getWordPlayed(), "src/code/Dictionary" ) == true)
 		{
 			_dataStruct.setLegitimateWord();

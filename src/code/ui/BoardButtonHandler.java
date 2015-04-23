@@ -34,7 +34,6 @@ public class BoardButtonHandler implements ActionListener {
 				temp.setText(Character.toString(_dataStruct.getSelectedTile().getChar())+ ":"+ Integer.toString(_dataStruct.getSelectedTile().getValue()));
 				temp.setForeground(_dataStruct.getCurrentPlayer().getColor());
 				_dataStruct.addToLocation(_row, _col);
-				_dataStruct.addToWordBeingPlayed(_dataStruct.getSelectedTile().getChar());
 				_dataStruct.getSelectedTile().setBool(false);
 				_dataStruct.setSelectedTile(null);
 				
@@ -49,7 +48,6 @@ public class BoardButtonHandler implements ActionListener {
 					temp.setText(Character.toString(_dataStruct.getSelectedTile().getChar())+ ":"+ Integer.toString(_dataStruct.getSelectedTile().getValue()));
 					temp.setForeground(_dataStruct.getCurrentPlayer().getColor());
 					_dataStruct.addToLocation(_row, _col);
-					_dataStruct.addToWordBeingPlayed(_dataStruct.getSelectedTile().getChar());
 					_dataStruct.getSelectedTile().setBool(false);
 					_dataStruct.setSelectedTile(null);
 				}
