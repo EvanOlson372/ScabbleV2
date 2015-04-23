@@ -218,6 +218,8 @@ public class Scrabble extends Observable {
 			}
 			while(_board.getTile(_row.get(0), i) != null){
 				_wordBeingPlayed = _wordBeingPlayed + _board.getTile(_row.get(0), i).getChar();
+				if(i == 19)
+					i = -1;
 				i++;
 			}
 		}		
@@ -229,7 +231,10 @@ public class Scrabble extends Observable {
 			}
 			while(_board.getTile(i, _col.get(0)) != null){
 				_wordBeingPlayed = _wordBeingPlayed + _board.getTile(i, _col.get(0)).getChar();
+				if(i == 19)
+					i = -1;
 				i++;
+				
 			}
 		}
 	}
