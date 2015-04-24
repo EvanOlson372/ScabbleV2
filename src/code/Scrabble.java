@@ -203,6 +203,7 @@ public class Scrabble extends Observable {
 		int r = 0;
 		int c = 0;
 		int i = 0;
+		int[] temp = new int[2];
 		
 		for(i = 0; i<_row.size(); i++){
 			if(_row.get(0) == _row.get(i))
@@ -211,32 +212,38 @@ public class Scrabble extends Observable {
 				c++;
 		}
 		
-		if(r == _row.size()){
-			i = 0;
-			while(_board.getTile(_row.get(0), i) == null){
-				i++;	
-			}
-			while(_board.getTile(_row.get(0), i) != null){
-				_wordBeingPlayed = _wordBeingPlayed + _board.getTile(_row.get(0), i).getChar();
-				if(i == 19)
-					i = -1;
-				i++;
-			}
-		}		
-		
-		if(c == _col.size()){
-			i = 0;
-			while(_board.getTile(i, _col.get(0)) == null){
-				i++;
-			}
-			while(_board.getTile(i, _col.get(0)) != null){
-				_wordBeingPlayed = _wordBeingPlayed + _board.getTile(i, _col.get(0)).getChar();
-				if(i == 19)
-					i = -1;
-				i++;
-				
+		if(_row.size()>1){
+			if(r == _row.size()){
+				i = _col.get(0);
+				while(_board.getTile(_row.get(0), i) == null){
+					i--;	
+				}
+				while(_board.getTile(_row.get(0), i) != null){
+					_wordBeingPlayed = _wordBeingPlayed + _board.getTile(_row.get(0), i).getChar();
+					if(i == 19)
+						i = -1;
+					i++;
+				}
+			}		
+			
+			if(c == _col.size()){
+				i = _row.get(0);
+				while(_board.getTile(i, _col.get(0)) == null){
+					i--;
+				}
+				while(_board.getTile(i, _col.get(0)) != null){
+					_wordBeingPlayed = _wordBeingPlayed + _board.getTile(i, _col.get(0)).getChar();
+					if(i == 19)
+						i = -1;
+					i++;
+					
+				}
 			}
 		}
+		
+		
+		
+		
 	}
 	
 	
