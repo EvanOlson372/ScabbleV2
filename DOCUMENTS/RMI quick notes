@@ -1,0 +1,5 @@
+Djava.rmi.server.hostname=[HN]
+[HN] = styx.cse.buffalo.edu
+
+ssh -X timberlack (if your on UB severs)
+or ssh -x timberlake.cse.buffalo.edu

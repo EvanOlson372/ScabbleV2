@@ -50,7 +50,7 @@ public class Scrabble extends Observable {
 	 * Number of players
 	 */
 	private int _numberOfPlayers;
-	/**
+	/**bggv/
 	 * stores players names
 	 */
 	public ArrayList<String> _playerNames;
