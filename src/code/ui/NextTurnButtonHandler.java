@@ -93,7 +93,6 @@ public class NextTurnButtonHandler implements ActionListener {
 			
 		}
 		else  {
-			
 			for (int i= 0;i<20;i++){
 				for (int j = 0;j<20;j++){
 					if(_b.getTile(i, j) != null){
@@ -101,14 +100,8 @@ public class NextTurnButtonHandler implements ActionListener {
 						p.getRack().addTile(_b.removeTile(i, j));	
 						}	
 					}
-				}
-			
-		
-			
+				}			
 			}
-		
-		//_dataStruct.nextTurn();
-		//p.getRack().fillRack();
 		}
 		
 		redrawRack();
