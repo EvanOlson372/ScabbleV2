@@ -213,7 +213,7 @@ public class Scrabble extends Observable {
 	 */
 	public void createWordPlayed(){
 		Collections.sort(_row); //sorts row holder list
-		Collections.sort(_col);	//
+		Collections.sort(_col);	//sorts col holder list
 		int r = 0;
 		int c = 0;
 		int i = 0;
@@ -291,12 +291,6 @@ public class Scrabble extends Observable {
 	
 	
 	/**
-	 * counts up word score
-	 */
-	
-	
-	
-	/**
 	 * added all but two accessors and mutators 
 	 * Driver Evan Olson
 	 * Navigator Leonardo Evangelista
@@ -309,15 +303,12 @@ public class Scrabble extends Observable {
 		for(int i = 0; i < s.length(); i++ ){
 			char c = s.charAt(i);
 			
-				// Create 29 of each vowel with point value 1
 				if ((c == 'A')||(c == 'E')||(c == 'I')||(c == 'O')||(c =='U')){
 					score += 1;
 				}
-				// Create 15 y's with point value 2
 				else if (c == 'Y'){
 					score += 2;
 				}
-				// Create 12 of every other letter with point value 5
 				else{
 					score += 5;
 					

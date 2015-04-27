@@ -26,8 +26,10 @@ public class BoardButtonHandler implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		System.out.print(_row+ ", "+_col);
 		Board b = _dataStruct.getBoard();
 		if(_dataStruct.getLegitamateWord() == true){
+			//error in this if()  when at index 19 for row or col needs fixed
 			if(b.getTile(_row+1, _col) != null || b.getTile(_row-1, _col) != null || b.getTile(_row, _col+1)!= null || b.getTile(_row, _col-1) != null){
 				b.addTile(_dataStruct.getSelectedTile(), _row, _col);
 				JButton temp = (JButton) e.getSource();
