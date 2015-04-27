@@ -23,12 +23,10 @@ public class DictionaryScanner {
 		String dWord ="";
 		
 		//static method which returns a string from a scanned file
-		System.out.println("start");
 		String file= readMe(filep); 
 		//System.out.println("read me creates: "+ '\n'+ file);
 		
 		// iterates through the file and adds words to the array list
-		System.out.println("start");
 		for (int i= 0; i<file.length();i++){ 
 			char ch = file.charAt(i);
 			ch = Character.toUpperCase(ch);
@@ -40,7 +38,6 @@ public class DictionaryScanner {
         		dWord = "";
         	}
 		}
-          System.out.println("done");
         	
           	if( dictionary.contains(word)){
         		  there = true;

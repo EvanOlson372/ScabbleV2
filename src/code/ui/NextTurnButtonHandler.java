@@ -38,27 +38,60 @@ public class NextTurnButtonHandler implements ActionListener {
 		DictionaryScanner ds = new DictionaryScanner();
 		_dataStruct.createWordPlayed();
 		
-		System.out.println(_dataStruct.getWordPlayed());
-		if(DictionaryScanner.compareWord(_dataStruct.getWordPlayed(), "src/code/Dictionary" ) == true)
-		{
-			_dataStruct.setLegitimateWord();
-			p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getWordPlayed()));
-			
-				for (int i= 0;i<20;i++){
-					for (int j=0;j<20;j++){
-						if(_b.getTile(i, j) != null){
-							_b.getTile(i, j).setBool(true);
+		System.out.println(_dataStruct.getFirstWordPlayed());
+		System.out.println(_dataStruct.getSecondWordPlayed());
+		
+		if(_dataStruct.getSecondWordPlayed() == ""){
+			if(DictionaryScanner.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary" ) == true)
+			{
+				_dataStruct.setLegitimateWord();
+				p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getFirstWordPlayed()));
+				
+					for (int i= 0;i<20;i++){
+						for (int j=0;j<20;j++){
+							if(_b.getTile(i, j) != null){
+								_b.getTile(i, j).setBool(true);
+							}
 						}
 					}
-				}
-				p.getRack().fillRack();
-					
-			/**
-			 * Driver Evan Olson
-			 * Navigator Leonardo Evangelista
-			 */
+					p.getRack().fillRack();
+						
+				/**
+				 * Driver Evan Olson
+				 * Navigator Leonardo Evangelista
+				 */
+			}
 		}
-		
+		if(_dataStruct.getSecondWordPlayed() != ""){
+			
+			if(DictionaryScanner.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary" ) == true 
+					&& DictionaryScanner.compareWord(_dataStruct.getSecondWordPlayed(),"src/code/Dictionary") == true)
+			{
+				_dataStruct.setLegitimateWord();
+				
+				if(_dataStruct.getFirstWordPlayed() == _dataStruct.getSecondWordPlayed())
+					p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getFirstWordPlayed()));
+				else{
+					p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getSecondWordPlayed()));
+					p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getFirstWordPlayed()));
+
+				}
+					for (int i= 0;i<20;i++){
+						for (int j=0;j<20;j++){
+							if(_b.getTile(i, j) != null){
+								_b.getTile(i, j).setBool(true);
+							}
+						}
+					}
+					p.getRack().fillRack();
+						
+				/**
+				 * Driver Evan Olson
+				 * Navigator Leonardo Evangelista
+				 */
+			}
+			
+		}
 		else  {
 			
 			for (int i= 0;i<20;i++){
@@ -66,11 +99,8 @@ public class NextTurnButtonHandler implements ActionListener {
 					if(_b.getTile(i, j) != null){
 						if (_b.getTile(i, j).getBool()== false){
 						p.getRack().addTile(_b.removeTile(i, j));	
-						}
-						
+						}	
 					}
-					
-					
 				}
 			
 		

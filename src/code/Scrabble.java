@@ -57,7 +57,8 @@ public class Scrabble extends Observable {
 	/**
 	 * Word holder
 	 */
-	public String _wordBeingPlayed;
+	public String _wordBeingPlayed_0;
+	public String _wordBeingPlayed_1;
 	
 	/**
 	 * stores letter locations on
@@ -79,7 +80,8 @@ public class Scrabble extends Observable {
 		_firstLegitimateWord = false;
 		_numberOfPlayers = 0;
 		_turn = 0;
-		_wordBeingPlayed = "";
+		_wordBeingPlayed_0 = "";
+		_wordBeingPlayed_1 = "";
 	}
 	
 	/**
@@ -89,6 +91,10 @@ public class Scrabble extends Observable {
 	public void setLegitimateWord(){
 		_firstLegitimateWord = true;
 	}
+	/**
+	 * 
+	 * @return true if a legitimate word has been played
+	 */
 	public boolean getLegitamateWord(){
 		return _firstLegitimateWord ; 
 	}
@@ -107,6 +113,7 @@ public class Scrabble extends Observable {
 	public Tile getSelectedTile(){
 		return _tileHolder;
 	}
+	
 	/**
 	 * when a letter is played this stores its location in the letter location array
 	 * 
@@ -130,9 +137,10 @@ public class Scrabble extends Observable {
 		_turn++;
 		if(_turn == _numberOfPlayers)
 			_turn = 0;
-		_wordBeingPlayed = "";
-		_row.clear();
-		_col.clear();
+		_wordBeingPlayed_0 = ""; //resets the word being played 
+		_wordBeingPlayed_1 = ""; //resets the word being played
+		_row.clear();	//resets the row holder
+		_col.clear();	//resets the col holder
 	}
 	
 	/**
@@ -186,11 +194,17 @@ public class Scrabble extends Observable {
 	/**
 	 * Gets word that was played
 	 */
-	public String getWordPlayed(){
+	public String getFirstWordPlayed(){
 		//setChanged();      // defined in superclass
 		//notifyObservers(); // defined in superclass
-		return _wordBeingPlayed;
+		return _wordBeingPlayed_0;
 	}
+	public String getSecondWordPlayed(){
+		//setChanged();      // defined in superclass
+		//notifyObservers(); // defined in superclass
+		return _wordBeingPlayed_1;
+	}
+	
 	
 	/**
 	 * Creates word that was played
@@ -198,8 +212,8 @@ public class Scrabble extends Observable {
 	 * 
 	 */
 	public void createWordPlayed(){
-		Collections.sort(_row);
-		Collections.sort(_col);
+		Collections.sort(_row); //sorts row holder list
+		Collections.sort(_col);	//
 		int r = 0;
 		int c = 0;
 		int i = 0;
@@ -213,13 +227,14 @@ public class Scrabble extends Observable {
 		}
 		
 		if(_row.size()>1){
+			System.out.println("if");
 			if(r == _row.size()){
 				i = _col.get(0);
 				while(_board.getTile(_row.get(0), i) == null){
 					i--;	
 				}
 				while(_board.getTile(_row.get(0), i) != null){
-					_wordBeingPlayed = _wordBeingPlayed + _board.getTile(_row.get(0), i).getChar();
+					_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.getTile(_row.get(0), i).getChar();
 					if(i == 19)
 						i = -1;
 					i++;
@@ -232,12 +247,39 @@ public class Scrabble extends Observable {
 					i--;
 				}
 				while(_board.getTile(i, _col.get(0)) != null){
-					_wordBeingPlayed = _wordBeingPlayed + _board.getTile(i, _col.get(0)).getChar();
+					_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.getTile(i, _col.get(0)).getChar();
 					if(i == 19)
 						i = -1;
 					i++;
 					
 				}
+			}
+		}
+		
+		else{
+			System.out.println("else");
+
+			i = _col.get(0);
+			while(_board.getTile(_row.get(0), i) == null){
+				i--;	
+			}
+			while(_board.getTile(_row.get(0), i) != null){
+				_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.getTile(_row.get(0), i).getChar();
+				if(i == 19)
+					i = -1;
+				i++;
+			}
+			
+			i = _row.get(0);
+			while(_board.getTile(i, _col.get(0)) == null){
+				i--;
+			}
+			while(_board.getTile(i, _col.get(0)) != null){
+				_wordBeingPlayed_1 = _wordBeingPlayed_1 + _board.getTile(i, _col.get(0)).getChar();
+				if(i == 19)
+					i = -1;
+				i++;
+				
 			}
 		}
 		

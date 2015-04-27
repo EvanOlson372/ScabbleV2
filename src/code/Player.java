@@ -27,6 +27,10 @@ public class Player {
 		createColor();
 	}
 	
+	/**
+	 * 
+	 *Creates and sets a random color to each player
+	 */
 	public void createColor(){
 	  Random rand = new Random();
 	  float r = rand.nextFloat();
@@ -37,6 +41,7 @@ public class Player {
 	  _c = color;
 
 	}
+	
 	/**
 	 * Gets the int value of the Player's score.
 	 * 
@@ -47,7 +52,7 @@ public class Player {
 	}
 	
 	/**
-	 * chooses a tile from the payers RACK!!
+	 * chooses a tile from the payers rack
 	 */
 	public Tile pickTile(int i){
 		return _rack.removeTile(i);
@@ -71,8 +76,10 @@ public class Player {
 		_score = _score + i;
 		return _score;
 	}
-	
-	
+	/**
+	 *
+	 * @return players rack
+	 */
 	public TileRack getRack(){
 		return _rack;
 		/**
@@ -80,6 +87,10 @@ public class Player {
 		 * Navigator Evan Olson
 		 */
 	}
+	/**
+	 * adds a tile to the players rack
+	 * @param t
+	 */
 	public void addTileToRack(Tile t){
 		_rack.addTile(t);
 		/**
@@ -87,16 +98,24 @@ public class Player {
 		 * Navigator Evan Olson
 		 */
 	}
-	
+	/**
+	 * Prints the players rack for testing purposes
+	 */
 	public void printRack(){
 		for(int i = 0; i<getRack().getSize();i++)
 		System.out.print(getRack().get(i).getChar());
-		
-		
 	}
+	/**
+	 * 
+	 * @return The players color
+	 */
 	public Color getColor(){
 		return _c;
 	}
+	/**
+	 * sets the players color
+	 * @param c
+	 */
 	public void setColor(Color c){
 		_c =c;
 	}
