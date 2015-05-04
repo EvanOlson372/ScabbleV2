@@ -1,4 +1,4 @@
-package server.client;
+package client;
 
 public class ClientDriver {
 
