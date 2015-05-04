@@ -3,7 +3,7 @@ package code;
 import java.awt.Color;
 import java.util.Random;
 
-public class Player {
+public class Player_030 {
 	private Color _c;
 	/**
 	 * Records the score.
@@ -13,7 +13,7 @@ public class Player {
 	/**
 	 * Allows the Player to access the Tiles on its own TileRack.
 	 */
-	private TileRack _rack;
+	private TileRack_030 _rack;
 	//private Inventory _inv;
 	
 	/**
@@ -21,9 +21,9 @@ public class Player {
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv){
+	public Player_030(Inventory_030 inv){
 		_score = 0;
-		_rack = new TileRack(inv);
+		_rack = new TileRack_030(inv);
 		createColor();
 	}
 	
@@ -54,13 +54,13 @@ public class Player {
 	/**
 	 * chooses a tile from the payers rack
 	 */
-	public Tile pickTile(int i){
+	public Tile_030 pickTile(int i){
 		return _rack.removeTile(i);
 	}
 	/**
 	 * looks at tile without changing anything
 	 */
-	public Tile getTile(int i){
+	public Tile_030 getTile(int i){
 	return _rack.get(i);	
 	}
 	
@@ -80,7 +80,7 @@ public class Player {
 	 *
 	 * @return players rack
 	 */
-	public TileRack getRack(){
+	public TileRack_030 getRack(){
 		return _rack;
 		/**
 		 * Driver Leonardo Evanelista
@@ -91,7 +91,7 @@ public class Player {
 	 * adds a tile to the players rack
 	 * @param t
 	 */
-	public void addTileToRack(Tile t){
+	public void addTileToRack(Tile_030 t){
 		_rack.addTile(t);
 		/**
 		 * Driver Leonardo Evangelista

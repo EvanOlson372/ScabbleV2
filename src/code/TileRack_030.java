@@ -2,26 +2,26 @@ package code;
 
 import java.util.ArrayList;
 
-public class TileRack {
+public class TileRack_030 {
 	
 	/**
 	 * Inventory to draw tiles from
 	 */
-	private Inventory _inv;
+	private Inventory_030 _inv;
 	
 	/**
 	 * Stores the tiles that can be played.
 	 */
-	private ArrayList<Tile> _rack;
+	private ArrayList<Tile_030> _rack;
 	
 	/**
 	 * Class cosntructor.
 	 * 
 	 * @param inv inventory to draw tiles from
 	 */
-	public TileRack(Inventory inv){
+	public TileRack_030(Inventory_030 inv){
 		_inv = inv;
-		_rack = new ArrayList<Tile>();
+		_rack = new ArrayList<Tile_030>();
 		fillRack();
 	}
 	
@@ -40,8 +40,8 @@ public class TileRack {
 	 * @param t tile to be removed from the rack
 	 * @return tile removed from the rack
 	 */
-	public Tile removeTile(Tile t){
-		Tile tileToRemove = t;
+	public Tile_030 removeTile(Tile_030 t){
+		Tile_030 tileToRemove = t;
 		_rack.remove(t);
 		return tileToRemove;
 	}
@@ -52,8 +52,8 @@ public class TileRack {
 	 * @param i index of tile to be removed
 	 * @return tile removed from the rack
 	 */
-	public Tile removeTile(int i){
-		Tile tileToRemove = _rack.get(i);
+	public Tile_030 removeTile(int i){
+		Tile_030 tileToRemove = _rack.get(i);
 		_rack.remove(i);
 		return tileToRemove;
 	}
@@ -66,11 +66,11 @@ public class TileRack {
 	public int getSize() {
 		return _rack.size();
 	}
-	public void addTile(Tile t){
+	public void addTile(Tile_030 t){
 		_rack.add(t);
 	}
 	
-	public Tile get(int i) {
+	public Tile_030 get(int i) {
 		return _rack.get(i);
 	}
 	}

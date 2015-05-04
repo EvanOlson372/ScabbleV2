@@ -7,17 +7,17 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-import code.Player;
-import code.Scrabble;
-import code.Tile;
+import code.Player_030;
+import code.Scrabble_030;
+import code.Tile_030;
 
-public class RackButtonHandler implements ActionListener  {
+public class RackButtonHandler_084 implements ActionListener  {
 	int _r;
 	int _c;
-	Scrabble _dataStruct;
+	Scrabble_030 _dataStruct;
 	JButton [][] _rackButtons;
 	
-	public RackButtonHandler(int r, int c, Scrabble dataStruct, JButton [][] rackButtons){
+	public RackButtonHandler_084(int r, int c, Scrabble_030 dataStruct, JButton [][] rackButtons){
 		_r = r;
 		_c = c;
 		_dataStruct = dataStruct;
@@ -27,7 +27,7 @@ public class RackButtonHandler implements ActionListener  {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Player p = _dataStruct.getCurrentPlayer();
+		Player_030 p = _dataStruct.getCurrentPlayer();
 		if(_r == _dataStruct.getTurn() && _c < p.getRack().getSize()){
 			if(_dataStruct.getSelectedTile() == null){
 				_dataStruct.setSelectedTile(p.pickTile(_c%12));
@@ -43,7 +43,7 @@ public class RackButtonHandler implements ActionListener  {
 	
 	
 	public void redrawRack(){
-		Player p = _dataStruct.getCurrentPlayer();
+		Player_030 p = _dataStruct.getCurrentPlayer();
 		
 			for(int c = 0; c<12; c++){
 				if(c<p.getRack().getSize())

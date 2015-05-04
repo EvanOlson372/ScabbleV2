@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Load {
+public class Load_084 {
 	public static String gameFileRead(String filename) {
 		
 		Scanner scan = null;

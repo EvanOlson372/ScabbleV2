@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DictionaryScanner {
+public class DictionaryScanner_084 {
 	/** The DictionaryScanner is implemented after each turn is completed
 	* and validates the word played. The compareWord method takes in the word
 	* played as well as the filepath to our Dictionary Document. It scans the file
@@ -83,7 +83,7 @@ public class DictionaryScanner {
 
 
 public static void main (String []args){
-DictionaryScanner.compareWord( "MARKET","src/code/Dictionary");
+DictionaryScanner_084.compareWord( "MARKET","src/code/Dictionary");
 
 	
 }

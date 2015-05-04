@@ -1,17 +1,17 @@
 package code;
 
-public class Board {
+public class Board_030 {
 
 	/**
 	 * 2-D array of tiles to store tiles.
 	 */
-	private Tile[][] _board;
+	private Tile_030[][] _board;
 
 	/**
 	 * Class constructor.
 	 */
-	public Board(){
-		_board = new Tile[20][20];
+	public Board_030(){
+		_board = new Tile_030[20][20];
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class Board {
 	 * @param x	the x-coordinate of the placement location
 	 * @param y the y-coordinate of the placement location
 	 */
-	public void addTile(Tile t, int x, int y){
+	public void addTile(Tile_030 t, int x, int y){
 		_board[x][y] = t;
 	}
 
@@ -32,8 +32,8 @@ public class Board {
 	 * @param y the y-coordinate of the tile to be removed
 	 * @return
 	 */
-	public Tile removeTile(int x, int y){
-		Tile temp = _board[x][y];
+	public Tile_030 removeTile(int x, int y){
+		Tile_030 temp = _board[x][y];
 		_board[x][y] = null;
 		return temp;
 	}
@@ -45,7 +45,7 @@ public class Board {
 	 * @param y the y-coordinate of the position
 	 * @return
 	 */
-	public Tile getTile(int x, int y){
+	public Tile_030 getTile(int x, int y){
 			return _board[x][y];
 	}
 	

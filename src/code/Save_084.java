@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-public class Save {
+public class Save_084 {
 	
 	/**
 	 * This takes the data from the game and writes it to a file which can later be retrieved
@@ -13,8 +13,8 @@ public class Save {
 	 * 
 	 * @@Kelly Plevniak
 	 */
-	private static code.Scrabble _dataStruct;
-	private static code.Player _player;
+	private static code.Scrabble_030 _dataStruct;
+	private static code.Player_030 _player;
 	
 	public static void gameFileWrite(String filename){
 		PrintWriter writer = null;
@@ -42,7 +42,7 @@ public class Save {
 	}
 	
 	public static void main (String []args){
-		Save.gameFileWrite("testFile");
+		Save_084.gameFileWrite("testFile");
 	}
 
 }

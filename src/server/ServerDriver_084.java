@@ -8,7 +8,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 import common.IServer;
 
-public class ServerDriver {
+public class ServerDriver_084 {
 
 	/**
 	 * Starts the server.  Server must be running and registered in the RMI

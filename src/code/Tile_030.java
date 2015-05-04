@@ -1,6 +1,6 @@
 package code;
 
-public class Tile {
+public class Tile_030 {
 
 	/**
 	 * Stores the character of the tile.
@@ -18,7 +18,7 @@ public class Tile {
 	 * @param c character of the tile
 	 * @param i point value of the tile
 	 */
-	public Tile(char c, int i){
+	public Tile_030(char c, int i){
 		_letter = c;
 		_pointValue = i;
 	}
