@@ -16,23 +16,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import code.Main_030;
-import code.Player_030;
-import code.TileRack_030;
+import code.Scrabble;
+import code.Player;
+import code.TileRack;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 
-public class ScrabbleUI_084 implements Observer, Runnable {
+public class ScrabbleUI implements Observer, Runnable {
 	
-	private static code.Main_030 _dataStruct;
+	private static code.Scrabble _dataStruct;
 	private ArrayList<JPanel> _playerPanels;
 	private ArrayList<JButton> _boardButtons;
 	private JButton [][] _rackButtons;
 	private JButton _nextTurnButton;
 	private static ArrayList<String> _players;
 	
-	public ScrabbleUI_084(){
-		_dataStruct = new Main_030();
+	public ScrabbleUI(){
+		_dataStruct = new Scrabble();
 		_dataStruct.addObserver(this);
 		_boardButtons = new ArrayList<JButton>();
 		_dataStruct.addPlayerName(_players);
@@ -52,7 +52,7 @@ public class ScrabbleUI_084 implements Observer, Runnable {
 		//	_dataStruct.addToNumberOfPlayers();
 		
 		
-		SwingUtilities.invokeLater(new ScrabbleUI_084());
+		SwingUtilities.invokeLater(new ScrabbleUI());
 	}
 
 	
@@ -72,7 +72,7 @@ public class ScrabbleUI_084 implements Observer, Runnable {
 		_nextTurnButton = new JButton("End Turn");
 		_nextTurnButton.setPreferredSize(new Dimension(30, 60));
 		_nextTurnButton.setOpaque(true);
-		_nextTurnButton.addActionListener(new NextTurnButtonHandler_084(_dataStruct, _rackButtons, _boardButtons, _playerPanels));
+		_nextTurnButton.addActionListener(new NextTurnButtonHandler(_dataStruct, _rackButtons, _boardButtons, _playerPanels));
 		
 		
 		northPanel.setLayout(new GridLayout(20,20, 1, 1));
@@ -82,7 +82,7 @@ public class ScrabbleUI_084 implements Observer, Runnable {
 			b.setForeground(Color.red);
 			b.setOpaque(true);
 			northPanel.add(b);
-			b.addActionListener(new BoardButtonHandler_084(i, _dataStruct));
+			b.addActionListener(new BoardButtonHandler(i, _dataStruct));
 			_boardButtons.add(b);
 		}
 		
@@ -107,7 +107,7 @@ public class ScrabbleUI_084 implements Observer, Runnable {
 	}
 
 	
-	public void addPlayerPanel(Player_030 p, String name, int r){
+	public void addPlayerPanel(Player p, String name, int r){
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel(name + ":" + Integer.toString(p.getScore()));
 		panel.add(label);
@@ -119,7 +119,7 @@ public class ScrabbleUI_084 implements Observer, Runnable {
 				b.setForeground(p.getColor());
 				b.setOpaque(true);
 				panel.add(b);
-				b.addActionListener(new RackButtonHandler_084(r,c, _dataStruct, _rackButtons));
+				b.addActionListener(new RackButtonHandler(r,c, _dataStruct, _rackButtons));
 				_rackButtons[r][c] = b;
 			
 			}
@@ -128,7 +128,7 @@ public class ScrabbleUI_084 implements Observer, Runnable {
 	}
 	
 	public void redrawRack(){
-		Player_030 p = _dataStruct.getCurrentPlayer();
+		Player p = _dataStruct.getCurrentPlayer();
 		
 			for(int c = 0; c<12; c++){
 				if(c<p.getRack().getSize())

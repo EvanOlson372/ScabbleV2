@@ -11,20 +11,20 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Main_030 extends Observable {
+public class Scrabble extends Observable {
 
 	
 	
-	private Player_030 _p;
+	private Player _p;
 	/**
 	 * stores current selected tile
 	 */
-	private Tile_030 _tileHolder;
+	private Tile _tileHolder;
 	
 	/**
 	 * Stores tiles.
 	 */
-	private TileInventory_030 _inv;
+	private Inventory _inv;
 	
 	/**
 	 * after first turn flag
@@ -41,11 +41,11 @@ public class Main_030 extends Observable {
 	/**
 	 * Stores players.
 	 */
-	public ArrayList<Player_030> _players;
+	public ArrayList<Player> _players;
 	/**
 	 * tile board to be played on
 	 */
-	private Board_030 _board;
+	private Board _board;
 	/**
 	 * Number of players
 	 */
@@ -70,13 +70,13 @@ public class Main_030 extends Observable {
 	/**
 	 * Class constructor
 	 */
-	public Main_030(){
-		_inv = new TileInventory_030();
+	public Scrabble(){
+		_inv = new Inventory();
 		//_color =_p.getColor();
 		_row = new ArrayList<Integer>();
 		_col = new ArrayList<Integer>();
-		_board = new Board_030();
-		_players = new ArrayList<Player_030>();
+		_board = new Board();
+		_players = new ArrayList<Player>();
 		_firstLegitimateWord = false;
 		_numberOfPlayers = 0;
 		_turn = 0;
@@ -103,14 +103,14 @@ public class Main_030 extends Observable {
 	 * Adds a new player to the game.
 	 */
 	public void addNewPlayer(){
-		_players.add(new Player_030(_inv));
+		_players.add(new Player(_inv));
 		_numberOfPlayers++;
 	}
 	
 	/**
 	 * gets currently selected tile
 	 */
-	public Tile_030 getSelectedTile(){
+	public Tile getSelectedTile(){
 		return _tileHolder;
 	}
 	
@@ -126,7 +126,7 @@ public class Main_030 extends Observable {
 	/**
 	 * Selects current tile
 	 */
-	public void setSelectedTile(Tile_030 t){
+	public void setSelectedTile(Tile t){
 		_tileHolder = t;
 	}
 
@@ -153,13 +153,13 @@ public class Main_030 extends Observable {
 	/**
 	 * gets the current player
 	 */
-	public Player_030 getCurrentPlayer(){
+	public Player getCurrentPlayer(){
 		return _players.get(_turn);
 	}
 	/**
 	 * gets the board
 	 */
-	public Board_030 getBoard(){
+	public Board getBoard(){
 		return _board;
 	}
 
@@ -187,7 +187,7 @@ public class Main_030 extends Observable {
 	 * getPlayer
 	 * @return 
 	 */
-	public Player_030 getPlayer(int i){
+	public Player getPlayer(int i){
 		return _players.get(i);
 	}
 
@@ -324,7 +324,7 @@ public class Main_030 extends Observable {
 	 * gets the current tile bag
 	 */
 	
-	public TileInventory_030 getInventory(){
+	public Inventory getInventory(){
 		return _inv;
 	}
 	public String getColor() {

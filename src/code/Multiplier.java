@@ -1,8 +1,8 @@
 package code;
-import code.Tile_030;
+import code.Tile;
 
 
-public class Multiplier_084 {
+public class Multiplier {
 	
 	int _wordMult;
 	int _letterMult;

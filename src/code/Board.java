@@ -1,19 +1,17 @@
 package code;
 
-public class Board_030 {
+public class Board {
 
-	//notes were added and edited by team 084, however no other methods or variables from team 030 were changed
-	
 	/**
 	 * 2-D array of tiles to store tiles.
 	 */
-	private Tile_030[][] Grid;
+	private Tile[][] _board;
 
 	/**
 	 * Class constructor.
 	 */
-	public Board_030(){
-		Grid = new Tile_030[20][20];
+	public Board(){
+		_board = new Tile[20][20];
 	}
 
 	/**
@@ -23,8 +21,8 @@ public class Board_030 {
 	 * @param x	the x-coordinate of the placement location
 	 * @param y the y-coordinate of the placement location
 	 */
-	public void placeTile(Tile_030 q, int x, int y){
-		Grid[x][y] = q;
+	public void addTile(Tile t, int x, int y){
+		_board[x][y] = t;
 	}
 
 	/**
@@ -34,10 +32,10 @@ public class Board_030 {
 	 * @param y the y-coordinate of the tile to be removed
 	 * @return
 	 */
-	public Tile_030 removeTilefromBoard(int row, int col){
-		Tile_030 t = Grid[row][col];
-		Grid[row][col] = null;
-		return t;
+	public Tile removeTile(int x, int y){
+		Tile temp = _board[x][y];
+		_board[x][y] = null;
+		return temp;
 	}
 
 	/**
@@ -47,8 +45,8 @@ public class Board_030 {
 	 * @param y the y-coordinate of the position
 	 * @return
 	 */
-	public Tile_030 getTile(int x, int y){
-			return Grid[x][y];
+	public Tile getTile(int x, int y){
+			return _board[x][y];
 	}
 	
 }

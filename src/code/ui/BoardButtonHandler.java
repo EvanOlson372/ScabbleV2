@@ -5,20 +5,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import code.Board_030;
-import code.Main_030;
-import code.Tile_030;
+import code.Board;
+import code.Scrabble;
+import code.Tile;
 
 
-public class BoardButtonHandler_084 implements ActionListener {
+public class BoardButtonHandler implements ActionListener {
 
 	
 	
-	private Main_030 _dataStruct;
+	private Scrabble _dataStruct;
 	private int _row;
 	private int _col;
 
-	public BoardButtonHandler_084(int i, Main_030 dataStruct) {
+	public BoardButtonHandler(int i, Scrabble dataStruct) {
 		_dataStruct = dataStruct;
 		_row = i/20;
 		_col = i%20;
@@ -27,7 +27,7 @@ public class BoardButtonHandler_084 implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.print(_row+ ", "+_col);
-		Board_030 b = _dataStruct.getBoard();
+		Board b = _dataStruct.getBoard();
 		
 		if(_dataStruct.getSelectedTile() != null){
 			if(_dataStruct.getLegitamateWord() == true){

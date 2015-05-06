@@ -3,18 +3,18 @@ package code;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class TileInventory_030 {
+public class Inventory {
 	
 	/**
 	 * Stores the tiles that have yet to be drawn.
 	 */
-	private ArrayList<Tile_030> _tileBag;
+	private ArrayList<Tile> _tileBag;
 	
 	/**
 	 * Class constructor.
 	 */
-	public TileInventory_030(){
-		_tileBag = new ArrayList<Tile_030>();
+	public Inventory(){
+		_tileBag = new ArrayList<Tile>();
 		fillBag();
 	}
 	
@@ -26,19 +26,19 @@ public class TileInventory_030 {
 			// Create 29 of each vowel with point value 1
 			if ((i == 'A')||(i == 'E')||(i == 'I')||(i == 'O')||(i =='U')){
 				for (int j = 0; j < 29; j++){
-					_tileBag.add(new Tile_030((char)i,1));
+					_tileBag.add(new Tile((char)i,1));
 				}
 			}
 			// Create 15 y's with point value 2
 			else if (i == 'Y'){
 				for (int j = 0; j < 15; j++){
-					_tileBag.add(new Tile_030((char)i,2));
+					_tileBag.add(new Tile((char)i,2));
 				}
 			}
 			// Create 12 of every other letter with point value 5
 			else{
 				for (int j = 0; j < 12; j++){
-					_tileBag.add(new Tile_030((char)i,5));
+					_tileBag.add(new Tile((char)i,5));
 				}
 			}
 		}
@@ -49,7 +49,7 @@ public class TileInventory_030 {
 	 * 
 	 * @return the random tile that was removed
 	 */ 
-	public Tile_030 removeRandomTile(){
+	public Tile removeRandomTile(){
 		int randomIndex = new Random().nextInt(_tileBag.size());
 		return _tileBag.remove(randomIndex);
 	}
@@ -69,7 +69,7 @@ public class TileInventory_030 {
 	 * @param i index of the tile bag array list
 	 * @return tile at index i
 	 */
-	public Tile_030 getTile(int i){
+	public Tile getTile(int i){
 		return _tileBag.get(i);
 	}
 }

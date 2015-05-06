@@ -8,22 +8,22 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import code.Board_030;
-import code.DictionaryScanner_084;
-import code.Player_030;
-import code.Main_030;
+import code.Board;
+import code.DictionaryScanner;
+import code.Player;
+import code.Scrabble;
 
-public class NextTurnButtonHandler_084 implements ActionListener {
+public class NextTurnButtonHandler implements ActionListener {
 
-	private Main_030 _dataStruct;
+	private Scrabble _dataStruct;
 	private JButton [][] _rackButtons;
 	private ArrayList<JButton> _boardButtons;
 	private ArrayList<JPanel> _playerPanels;
 	private int _row;
 	private int _col;
-	private Board_030 _b;
+	private Board _b;
 	
-	public NextTurnButtonHandler_084(Main_030 dataStruct, JButton [][] rackButtons,  ArrayList<JButton> boardButtons, ArrayList<JPanel> playerPanels){
+	public NextTurnButtonHandler(Scrabble dataStruct, JButton [][] rackButtons,  ArrayList<JButton> boardButtons, ArrayList<JPanel> playerPanels){
 		_boardButtons = boardButtons;
 		_playerPanels = playerPanels;
 		_rackButtons = rackButtons;
@@ -34,15 +34,15 @@ public class NextTurnButtonHandler_084 implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		Player_030 p = _dataStruct.getCurrentPlayer();
-		DictionaryScanner_084 ds = new DictionaryScanner_084();
+		Player p = _dataStruct.getCurrentPlayer();
+		DictionaryScanner ds = new DictionaryScanner();
 		_dataStruct.createWordPlayed();
 		
 		System.out.println(_dataStruct.getFirstWordPlayed());
 		System.out.println(_dataStruct.getSecondWordPlayed());
 		
 		if(_dataStruct.getSecondWordPlayed() == ""){
-			if(DictionaryScanner_084.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary" ) == true)
+			if(DictionaryScanner.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary" ) == true)
 			{
 				_dataStruct.setLegitimateWord();
 				p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getFirstWordPlayed()));
@@ -64,8 +64,8 @@ public class NextTurnButtonHandler_084 implements ActionListener {
 		}
 		if(_dataStruct.getSecondWordPlayed() != ""){
 			
-			if(DictionaryScanner_084.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary" ) == true 
-					&& DictionaryScanner_084.compareWord(_dataStruct.getSecondWordPlayed(),"src/code/Dictionary") == true)
+			if(DictionaryScanner.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary" ) == true 
+					&& DictionaryScanner.compareWord(_dataStruct.getSecondWordPlayed(),"src/code/Dictionary") == true)
 			{
 				_dataStruct.setLegitimateWord();
 				
@@ -112,7 +112,7 @@ public class NextTurnButtonHandler_084 implements ActionListener {
 	}
 	
 	public void redrawRack(){
-		Player_030 p = _dataStruct.getCurrentPlayer();
+		Player p = _dataStruct.getCurrentPlayer();
 		
 			for(int c = 0; c<12; c++){
 				if(c<p.getRack().getSize())

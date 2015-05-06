@@ -12,7 +12,7 @@ import client.ClientUI;
 
 import common.IServer;
 
-public class ClientDriver_084 {
+public class ClientDriver {
 	/**
 	 * Starts the client.  Server must be running and registered in the RMI
 	 * registry before any client starts.

@@ -5,18 +5,18 @@ import java.awt.Color;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
-import code.TileInventory_030;
-import code.Player_030;
+import code.Inventory;
+import code.Player;
 
-public class PlayerTest_030 {
+public class PlayerTest {
 	//test that initial score at new game is 0
 	
     @Test public void testScore() {testInitialScore(0);}
 	
     private void testInitialScore(int expected) {
-    	TileInventory_030 i = new TileInventory_030();
+    	Inventory i = new Inventory();
     	Color c = new Color(1);// the "1" is just a place holder 
-        Player_030 p = new Player_030(i);
+        Player p = new Player(i);
         int actual = p.getScore();
         
         assertTrue("I tested whether or not the Player's score was"+expected+"and it should have returned"+actual, actual==expected);
@@ -29,9 +29,9 @@ public class PlayerTest_030 {
     @Test public void testNewScore3() {testAddScore(99, 25, 124);}
 	
     private void testAddScore(int original, int add, int total) {
-    	TileInventory_030 i = new TileInventory_030();
+    	Inventory i = new Inventory();
     	Color c = new Color(1);// the "1" is just a place holder 
-        Player_030 p = new Player_030(i);
+        Player p = new Player(i);
         int actual = p.addScore(original, add);
         
         assertTrue("I tested whether or not the Player's score was"+total+"after adding"+original+"and"+add+"and it should have returned"+actual, actual==total);
