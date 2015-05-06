@@ -41,7 +41,7 @@ public class NextTurnButtonHandler implements ActionListener {
 		System.out.println(_dataStruct.getFirstWordPlayed());
 		System.out.println(_dataStruct.getSecondWordPlayed());
 		
-		if(_dataStruct.getSecondWordPlayed() == ""){
+		if(_dataStruct.getSecondWordPlayed() == "" || _dataStruct.getSecondWordPlayed().length() == 1){
 			if(DictionaryScanner.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary" ) == true)
 			{
 				_dataStruct.setLegitimateWord();
@@ -62,20 +62,14 @@ public class NextTurnButtonHandler implements ActionListener {
 				 */
 			}
 		}
-		if(_dataStruct.getSecondWordPlayed() != ""){
+		if(_dataStruct.getFirstWordPlayed() == "" || _dataStruct.getFirstWordPlayed().length() == 1){
 			
-			if(DictionaryScanner.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary" ) == true 
-					&& DictionaryScanner.compareWord(_dataStruct.getSecondWordPlayed(),"src/code/Dictionary") == true)
+			if(DictionaryScanner.compareWord(_dataStruct.getSecondWordPlayed(), "src/code/Dictionary" ) == true)
 			{
 				_dataStruct.setLegitimateWord();
-				
-				if(_dataStruct.getFirstWordPlayed() == _dataStruct.getSecondWordPlayed())
-					p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getFirstWordPlayed()));
-				else{
 					p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getSecondWordPlayed()));
-					p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getFirstWordPlayed()));
-
-				}
+	
+				
 					for (int i= 0;i<20;i++){
 						for (int j=0;j<20;j++){
 							if(_b.getTile(i, j) != null){
@@ -84,13 +78,31 @@ public class NextTurnButtonHandler implements ActionListener {
 						}
 					}
 					p.getRack().fillRack();
-						
+			}		
 				/**
 				 * Driver Evan Olson
 				 * Navigator Leonardo Evangelista
 				 */
-			}
+		}
+		if(_dataStruct.getFirstWordPlayed().length() > 1 && _dataStruct.getSecondWordPlayed().length() > 1){
+			if(DictionaryScanner.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary") == true
+					&& DictionaryScanner.compareWord(_dataStruct.getFirstWordPlayed(), "src/code/Dictionary") == true){
+				
+				
+				_dataStruct.setLegitimateWord();
+				p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getFirstWordPlayed()));
+				p.addScore(p.getScore(), _dataStruct.countWordScore(_dataStruct.getSecondWordPlayed()));
+
 			
+				for (int i= 0;i<20;i++){
+					for (int j=0;j<20;j++){
+						if(_b.getTile(i, j) != null){
+							_b.getTile(i, j).setBool(true);
+						}
+					}
+				}
+				p.getRack().fillRack();
+			}
 		}
 		else  {
 			for (int i= 0;i<20;i++){
