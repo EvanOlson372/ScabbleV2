@@ -230,7 +230,7 @@ public class Scrabble extends Observable {
 			System.out.println("if");
 			if(r == _row.size()){
 				i = _col.get(0);
-				while(_board.getTile(_row.get(0), i-1) != null){
+				while(_board.getTile(_row.get(0), i) == null){
 					i--;	
 				}
 				while(_board.getTile(_row.get(0), i) != null){
@@ -243,7 +243,7 @@ public class Scrabble extends Observable {
 			
 			if(c == _col.size()){
 				i = _row.get(0);
-				while(_board.getTile(i-1, _col.get(0)) != null){
+				while(_board.getTile(i, _col.get(0)) == null){
 					i--;
 				}
 				while(_board.getTile(i, _col.get(0)) != null){
@@ -260,7 +260,7 @@ public class Scrabble extends Observable {
 			System.out.println("else");
 
 			i = _col.get(0);
-			while(_board.getTile(_row.get(0), i-1) != null){
+			while(_board.getTile(_row.get(0), i) == null){
 				i--;	
 			}
 			while(_board.getTile(_row.get(0), i) != null){
@@ -271,7 +271,7 @@ public class Scrabble extends Observable {
 			}
 			
 			i = _row.get(0);
-			while(_board.getTile(i-1, _col.get(0)) != null){
+			while(_board.getTile(i, _col.get(0)) == null){
 				i--;
 			}
 			while(_board.getTile(i, _col.get(0)) != null){
