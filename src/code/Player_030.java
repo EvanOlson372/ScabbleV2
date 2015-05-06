@@ -21,7 +21,7 @@ public class Player_030 {
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player_030(Inventory_030 inv){
+	public Player_030(TileInventory_030 inv){
 		_score = 0;
 		_rack = new TileRack_030(inv);
 		createColor();

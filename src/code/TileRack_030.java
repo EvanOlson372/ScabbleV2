@@ -7,7 +7,7 @@ public class TileRack_030 {
 	/**
 	 * Inventory to draw tiles from
 	 */
-	private Inventory_030 _inv;
+	private TileInventory_030 _inv;
 	
 	/**
 	 * Stores the tiles that can be played.
@@ -19,7 +19,7 @@ public class TileRack_030 {
 	 * 
 	 * @param inv inventory to draw tiles from
 	 */
-	public TileRack_030(Inventory_030 inv){
+	public TileRack_030(TileInventory_030 inv){
 		_inv = inv;
 		_rack = new ArrayList<Tile_030>();
 		fillRack();

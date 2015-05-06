@@ -11,11 +11,11 @@ import javax.swing.JPanel;
 import code.Board_030;
 import code.DictionaryScanner_084;
 import code.Player_030;
-import code.Scrabble_030;
+import code.Main_030;
 
 public class NextTurnButtonHandler_084 implements ActionListener {
 
-	private Scrabble_030 _dataStruct;
+	private Main_030 _dataStruct;
 	private JButton [][] _rackButtons;
 	private ArrayList<JButton> _boardButtons;
 	private ArrayList<JPanel> _playerPanels;
@@ -23,7 +23,7 @@ public class NextTurnButtonHandler_084 implements ActionListener {
 	private int _col;
 	private Board_030 _b;
 	
-	public NextTurnButtonHandler_084(Scrabble_030 dataStruct, JButton [][] rackButtons,  ArrayList<JButton> boardButtons, ArrayList<JPanel> playerPanels){
+	public NextTurnButtonHandler_084(Main_030 dataStruct, JButton [][] rackButtons,  ArrayList<JButton> boardButtons, ArrayList<JPanel> playerPanels){
 		_boardButtons = boardButtons;
 		_playerPanels = playerPanels;
 		_rackButtons = rackButtons;

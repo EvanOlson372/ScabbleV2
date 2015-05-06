@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 import code.Player_030;
-import code.Scrabble_030;
+import code.Main_030;
 import code.Tile_030;
 
 public class RackButtonHandler_084 implements ActionListener  {
 	int _r;
 	int _c;
-	Scrabble_030 _dataStruct;
+	Main_030 _dataStruct;
 	JButton [][] _rackButtons;
 	
-	public RackButtonHandler_084(int r, int c, Scrabble_030 dataStruct, JButton [][] rackButtons){
+	public RackButtonHandler_084(int r, int c, Main_030 dataStruct, JButton [][] rackButtons){
 		_r = r;
 		_c = c;
 		_dataStruct = dataStruct;

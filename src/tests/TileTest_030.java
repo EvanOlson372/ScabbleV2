@@ -3,7 +3,7 @@ package tests;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
-import code.Inventory_030;
+import code.TileInventory_030;
 import code.Tile_030;
 
 public class TileTest_030 {

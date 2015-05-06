@@ -13,7 +13,7 @@ public class Save_084 {
 	 * 
 	 * @@Kelly Plevniak
 	 */
-	private static code.Scrabble_030 _dataStruct;
+	private static code.Main_030 _dataStruct;
 	private static code.Player_030 _player;
 	
 	public static void gameFileWrite(String filename){

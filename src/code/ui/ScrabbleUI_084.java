@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import code.Scrabble_030;
+import code.Main_030;
 import code.Player_030;
 import code.TileRack_030;
 import javafx.beans.InvalidationListener;
@@ -24,7 +24,7 @@ import javafx.beans.Observable;
 
 public class ScrabbleUI_084 implements Observer, Runnable {
 	
-	private static code.Scrabble_030 _dataStruct;
+	private static code.Main_030 _dataStruct;
 	private ArrayList<JPanel> _playerPanels;
 	private ArrayList<JButton> _boardButtons;
 	private JButton [][] _rackButtons;
@@ -32,7 +32,7 @@ public class ScrabbleUI_084 implements Observer, Runnable {
 	private static ArrayList<String> _players;
 	
 	public ScrabbleUI_084(){
-		_dataStruct = new Scrabble_030();
+		_dataStruct = new Main_030();
 		_dataStruct.addObserver(this);
 		_boardButtons = new ArrayList<JButton>();
 		_dataStruct.addPlayerName(_players);

@@ -5,7 +5,7 @@ import java.awt.Color;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
-import code.Inventory_030;
+import code.TileInventory_030;
 import code.Player_030;
 
 public class PlayerTest_030 {
@@ -14,7 +14,7 @@ public class PlayerTest_030 {
     @Test public void testScore() {testInitialScore(0);}
 	
     private void testInitialScore(int expected) {
-    	Inventory_030 i = new Inventory_030();
+    	TileInventory_030 i = new TileInventory_030();
     	Color c = new Color(1);// the "1" is just a place holder 
         Player_030 p = new Player_030(i);
         int actual = p.getScore();
@@ -29,7 +29,7 @@ public class PlayerTest_030 {
     @Test public void testNewScore3() {testAddScore(99, 25, 124);}
 	
     private void testAddScore(int original, int add, int total) {
-    	Inventory_030 i = new Inventory_030();
+    	TileInventory_030 i = new TileInventory_030();
     	Color c = new Color(1);// the "1" is just a place holder 
         Player_030 p = new Player_030(i);
         int actual = p.addScore(original, add);

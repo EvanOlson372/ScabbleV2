@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Scrabble_030 extends Observable {
+public class Main_030 extends Observable {
 
 	
 	
@@ -24,7 +24,7 @@ public class Scrabble_030 extends Observable {
 	/**
 	 * Stores tiles.
 	 */
-	private Inventory_030 _inv;
+	private TileInventory_030 _inv;
 	
 	/**
 	 * after first turn flag
@@ -70,8 +70,8 @@ public class Scrabble_030 extends Observable {
 	/**
 	 * Class constructor
 	 */
-	public Scrabble_030(){
-		_inv = new Inventory_030();
+	public Main_030(){
+		_inv = new TileInventory_030();
 		//_color =_p.getColor();
 		_row = new ArrayList<Integer>();
 		_col = new ArrayList<Integer>();
@@ -324,7 +324,7 @@ public class Scrabble_030 extends Observable {
 	 * gets the current tile bag
 	 */
 	
-	public Inventory_030 getInventory(){
+	public TileInventory_030 getInventory(){
 		return _inv;
 	}
 	public String getColor() {

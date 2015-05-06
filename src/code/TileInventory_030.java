@@ -3,7 +3,7 @@ package code;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Inventory_030 {
+public class TileInventory_030 {
 	
 	/**
 	 * Stores the tiles that have yet to be drawn.
@@ -13,7 +13,7 @@ public class Inventory_030 {
 	/**
 	 * Class constructor.
 	 */
-	public Inventory_030(){
+	public TileInventory_030(){
 		_tileBag = new ArrayList<Tile_030>();
 		fillBag();
 	}

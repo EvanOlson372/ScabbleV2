@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import code.Board_030;
-import code.Scrabble_030;
+import code.Main_030;
 import code.Tile_030;
 
 
@@ -14,11 +14,11 @@ public class BoardButtonHandler_084 implements ActionListener {
 
 	
 	
-	private Scrabble_030 _dataStruct;
+	private Main_030 _dataStruct;
 	private int _row;
 	private int _col;
 
-	public BoardButtonHandler_084(int i, Scrabble_030 dataStruct) {
+	public BoardButtonHandler_084(int i, Main_030 dataStruct) {
 		_dataStruct = dataStruct;
 		_row = i/20;
 		_col = i%20;

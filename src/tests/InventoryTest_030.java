@@ -2,7 +2,7 @@ package tests;
 
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
-import code.Inventory_030;
+import code.TileInventory_030;
 import code.Tile_030;
 
 public class InventoryTest_030 {
@@ -11,7 +11,7 @@ public class InventoryTest_030 {
 	@Test
 	public void initialCapacityTest(){
 		int expected = 400;
-		Inventory_030 inv = new Inventory_030();
+		TileInventory_030 inv = new TileInventory_030();
 		int actual = inv.getSize();
 		assertTrue("I expected the new inventory's initial capacity to be "+expected+" but instead it is"+actual, expected==actual);
 	}
@@ -26,7 +26,7 @@ public class InventoryTest_030 {
 		int actualI = 0;
 		int actualY = 0;
 		int actualF = 0;
-		Inventory_030 inv = new Inventory_030();
+		TileInventory_030 inv = new TileInventory_030();
 		for (int i = 0; i < inv.getSize(); i++){
 			if (inv.getTile(i).getChar() == 'I'){
 				actualI++;
@@ -54,7 +54,7 @@ public class InventoryTest_030 {
 	// Check ability to draw an object of type tile
 	@Test
 	public void drawTileTest1(){
-		Inventory_030 inv = new Inventory_030();
+		TileInventory_030 inv = new TileInventory_030();
 		assertTrue("I expected the object drawn to be a tile but it wasn't", inv.removeRandomTile() instanceof Tile_030);
 	}
 	
@@ -62,7 +62,7 @@ public class InventoryTest_030 {
 	@Test
 	public void drawTileTest2(){
 		int expected = 399;
-		Inventory_030 inv = new Inventory_030();
+		TileInventory_030 inv = new TileInventory_030();
 		inv.removeRandomTile();
 		int actual = inv.getSize();
 		assertTrue("I expected the inventory to decrease in size after drawing a tile but it didn't", actual == expected);
