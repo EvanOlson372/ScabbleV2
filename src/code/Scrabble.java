@@ -76,6 +76,8 @@ public class Scrabble extends Observable {
 		_row = new ArrayList<Integer>();
 		_col = new ArrayList<Integer>();
 		_board = new Board();
+		_board.multboard();
+		_board.printBoard();
 		_players = new ArrayList<Player>();
 		_firstLegitimateWord = false;
 		_numberOfPlayers = 0;
