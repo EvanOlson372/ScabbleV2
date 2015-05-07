@@ -26,19 +26,19 @@ public class Inventory {
 			// Create 29 of each vowel with point value 1
 			if ((i == 'A')||(i == 'E')||(i == 'I')||(i == 'O')||(i =='U')){
 				for (int j = 0; j < 29; j++){
-					_tileBag.add(new Tile((char)i,1));
+					_tileBag.add(new Tile((char)i,1,1,1));
 				}
 			}
 			// Create 15 y's with point value 2
 			else if (i == 'Y'){
 				for (int j = 0; j < 15; j++){
-					_tileBag.add(new Tile((char)i,2));
+					_tileBag.add(new Tile((char)i,2,1,1));
 				}
 			}
 			// Create 12 of every other letter with point value 5
 			else{
 				for (int j = 0; j < 12; j++){
-					_tileBag.add(new Tile((char)i,5));
+					_tileBag.add(new Tile((char)i,5,1,1));
 				}
 			}
 		}

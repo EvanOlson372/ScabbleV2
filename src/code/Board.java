@@ -1,5 +1,7 @@
 package code;
 
+import java.util.Random;
+
 public class Board {
 
 	/**
@@ -47,6 +49,51 @@ public class Board {
 	 */
 	public Tile getTile(int x, int y){
 			return _board[x][y];
+	}
+	
+	public void multboard(){
+		Random randGen = new Random();
+		
+		for(int i = 0; i < 60; i++){
+			int r = randGen.nextInt(20);
+			int c = randGen.nextInt(20);
+	
+			if(_board[r][c] == null)
+				_board[r][c] = new Tile('*',1,1,2);
+			else
+				i--;
+			System.out.println(i);
+
+		}
+
+		for(int i = 0; i < 40; i++){
+			int r = randGen.nextInt(20);
+			int c = randGen.nextInt(20);
+	
+			if(_board[r][c] == null)
+				_board[r][c] = new Tile('*',1,1,3);
+			else
+				i--;
+			System.out.println(i);
+
+		}
+
+		
+	}
+	
+	public void printBoard(){
+		
+		for( int r = 0; r<=19; r++){
+			System.out.print("[ ");
+			for(int c = 0; c<=19; c++){	
+				if(_board[r][c] != null)
+				System.out.print(_board[r][c].getChar()+" ,");	
+				else
+				System.out.print(" ,");
+			}
+			System.out.println("]");
+			
+		}
 	}
 	
 }

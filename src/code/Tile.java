@@ -18,7 +18,7 @@ public class Tile {
 	 * @param c character of the tile
 	 * @param i point value of the tile
 	 */
-	public Tile(char c, int i){
+	public Tile(char c, int i, int wMult, int lMult){
 		_letter = c;
 		_pointValue = i;
 	}
