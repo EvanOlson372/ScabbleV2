@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import code.Player;
 	import common.IClient;
 import common.IServer;
 
@@ -21,6 +22,8 @@ import common.IServer;
 		private JTextField _tf;
 		private JFrame _window;
 		private IServer _server;
+		private JButton [][] _rackButtons;
+		private static code.Scrabble _dataStruct;
 
 		public ClientUI(IServer s, String hostName, int portNumber) {
 			_server = s;
@@ -60,10 +63,37 @@ import common.IServer;
 				System.exit(1);
 			}
 		}
+		public void redrawRack(){
+			Player p = _dataStruct.getCurrentPlayer();
+			
+				for(int c = 0; c<12; c++){
+					if(c<p.getRack().getSize())
+					{
+						JButton b = _rackButtons[_dataStruct.getTurn()][c];
+						b.setText(Character.toString(_dataStruct.getCurrentPlayer().getRack().get(c).getChar()) + ":" + Integer.toString(p.getTile(c).getValue()));
+					}
+					else{
+						JButton b = _rackButtons[_dataStruct.getTurn()][c];
+						b.setText(" ");
+						
+					}
+						
+				
+				}
+			
+		}
+		
+		
 
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			
 		}
+		@Override
+		public void update(java.util.Observable o, Object _dataStruct) throws RemoteException {
+			redrawRack();
+			
+		}
+	
 }
