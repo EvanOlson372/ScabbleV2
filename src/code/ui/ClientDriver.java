@@ -8,7 +8,7 @@ import java.rmi.registry.Registry;
 
 import javax.swing.SwingUtilities;
 
-import client.ClientUI;
+import code.ui.ClientUI;
 
 import common.IServer;
 

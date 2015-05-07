@@ -14,6 +14,7 @@ public class Server implements IServer {
 	public Server() {
 	
 		   System.out.println("...server running...");
+			//_votes = 0;
 			_observers = new ArrayList<IClient>();
 	}
 	@Override

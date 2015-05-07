@@ -1,21 +1,22 @@
 package code.ui;
 
 	import java.awt.GridLayout;
-	import java.awt.event.ActionEvent;
-	import java.awt.event.ActionListener;
-	import java.rmi.RemoteException;
-	import java.rmi.server.ExportException;
-	import java.rmi.server.UnicastRemoteObject;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.server.ExportException;
+import java.rmi.server.UnicastRemoteObject;
 
 	import javax.swing.JButton;
-	import javax.swing.JFrame;
-	import javax.swing.JPanel;
-	import javax.swing.JTextField;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 	import common.IClient;
-	import common.IServer;
+import common.IServer;
 
-	public class ClientUI implements Runnable, IClient {
+	public class ClientUI implements Runnable, IClient{
 
 		private JTextField _tf;
 		private JFrame _window;
