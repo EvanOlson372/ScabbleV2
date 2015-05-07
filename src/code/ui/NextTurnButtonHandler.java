@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import code.Board;
+import code.Board_030_084;
 import code.DictionaryScanner;
 import code.Player;
 import code.Scrabble;
@@ -21,7 +21,7 @@ public class NextTurnButtonHandler implements ActionListener {
 	private ArrayList<JPanel> _playerPanels;
 	private int _row;
 	private int _col;
-	private Board _b;
+	private Board_030_084 _b;
 	
 	public NextTurnButtonHandler(Scrabble dataStruct, JButton [][] rackButtons,  ArrayList<JButton> boardButtons, ArrayList<JPanel> playerPanels){
 		_boardButtons = boardButtons;

@@ -5,14 +5,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import code.Board;
+import code.Board_030_084;
 import code.Tile;
 
 public class BoardTest {
 	@Test
 	public void initializedEmptyBoardTest(){
 		//test that initialized board is empty
-		Board b = new Board();
+		Board_030_084 b = new Board_030_084();
 		int nullTileCount=0;
 		for (int i=0; i<20; i++){
 			for (int j=0; j<20;j++){
@@ -26,7 +26,7 @@ public class BoardTest {
 	@Test
 	public void addTest(){
 		//test that we can add a tile to a spot
-		Board b = new Board();
+		Board_030_084 b = new Board_030_084();
 		Tile t = new Tile('y',2);
 		b.addTile(t,2,2);
 		assertTrue("I tried to add a tile to the board, but it wasn't there", t==b.getTile(2, 2));
@@ -34,7 +34,7 @@ public class BoardTest {
 	//test that the correct tile is removed from a spot
 	@Test
 	public void removeTest(){
-		Board b = new Board();
+		Board_030_084 b = new Board_030_084();
 		Tile tile = new Tile('A', 1);
 		b.addTile(tile,19,2);
 		Tile temp=b.removeTile(19,2);
@@ -43,7 +43,7 @@ public class BoardTest {
 	//test that spot on board is empty after removing a tile
 	@Test
 	public void emptyAfterRemovalTest(){
-		Board b = new Board();
+		Board_030_084 b = new Board_030_084();
 		boolean testNull=false;
 		Tile tile = new Tile('z',5);
 		b.addTile(tile,7,7);

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import code.Board;
+import code.Board_030_084;
 import code.Scrabble;
 import code.Tile;
 
@@ -27,7 +27,7 @@ public class BoardButtonHandler implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.print(_row+ ", "+_col);
-		Board b = _dataStruct.getBoard();
+		Board_030_084 b = _dataStruct.getBoard();
 		
 		if(_dataStruct.getSelectedTile() != null){
 			if(_dataStruct.getLegitamateWord() == true){

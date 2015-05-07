@@ -2,7 +2,7 @@ package code;
 
 import java.util.Random;
 
-public class Board {
+public class Board_030_084 {
 
 	/**
 	 * 2-D array of tiles to store tiles.
@@ -12,7 +12,7 @@ public class Board {
 	/**
 	 * Class constructor.
 	 */
-	public Board(){
+	public Board_030_084(){
 		_board = new Tile[20][20];
 	}
 

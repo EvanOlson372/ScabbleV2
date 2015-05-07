@@ -45,7 +45,7 @@ public class Scrabble extends Observable {
 	/**
 	 * tile board to be played on
 	 */
-	private Board _board;
+	private Board_030_084 _board;
 	/**
 	 * Number of players
 	 */
@@ -75,7 +75,7 @@ public class Scrabble extends Observable {
 		//_color =_p.getColor();
 		_row = new ArrayList<Integer>();
 		_col = new ArrayList<Integer>();
-		_board = new Board();
+		_board = new Board_030_084();
 		_board.multboard();
 		_board.printBoard();
 		_players = new ArrayList<Player>();
@@ -161,7 +161,7 @@ public class Scrabble extends Observable {
 	/**
 	 * gets the board
 	 */
-	public Board getBoard(){
+	public Board_030_084 getBoard(){
 		return _board;
 	}
 
