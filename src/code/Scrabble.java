@@ -45,7 +45,7 @@ public class Scrabble extends Observable {
 	/**
 	 * tile board to be played on
 	 */
-	private Board _board;
+	private Board_030 _board;
 	/**
 	 * Number of players
 	 */
@@ -75,7 +75,7 @@ public class Scrabble extends Observable {
 		//_color =_p.getColor();
 		_row = new ArrayList<Integer>();
 		_col = new ArrayList<Integer>();
-		_board = new Board();
+		_board = new Board_030();
 		_players = new ArrayList<Player>();
 		_firstLegitimateWord = false;
 		_numberOfPlayers = 0;
@@ -159,7 +159,7 @@ public class Scrabble extends Observable {
 	/**
 	 * gets the board
 	 */
-	public Board getBoard(){
+	public Board_030 getBoard(){
 		return _board;
 	}
 
@@ -230,11 +230,11 @@ public class Scrabble extends Observable {
 			System.out.println("if");
 			if(r == _row.size()){
 				i = _col.get(0);
-				while(_board.getTile(_row.get(0), i-1) != null){
+				while(_board.Tile_From_Board(_row.get(0), i-1) != null){
 					i--;	
 				}
-				while(_board.getTile(_row.get(0), i) != null){
-					_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.getTile(_row.get(0), i).getChar();
+				while(_board.Tile_From_Board(_row.get(0), i) != null){
+					_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.Tile_From_Board(_row.get(0), i).getChar();
 					if(i == 19)
 						i = -1;
 					i++;
@@ -243,11 +243,11 @@ public class Scrabble extends Observable {
 			
 			if(c == _col.size()){
 				i = _row.get(0);
-				while(_board.getTile(i-1, _col.get(0)) != null){
+				while(_board.Tile_From_Board(i-1, _col.get(0)) != null){
 					i--;
 				}
-				while(_board.getTile(i, _col.get(0)) != null){
-					_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.getTile(i, _col.get(0)).getChar();
+				while(_board.Tile_From_Board(i, _col.get(0)) != null){
+					_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.Tile_From_Board(i, _col.get(0)).getChar();
 					if(i == 19)
 						i = -1;
 					i++;
@@ -260,22 +260,22 @@ public class Scrabble extends Observable {
 			System.out.println("else");
 
 			i = _col.get(0);
-			while(_board.getTile(_row.get(0), i-1) != null){
+			while(_board.Tile_From_Board(_row.get(0), i-1) != null){
 				i--;	
 			}
-			while(_board.getTile(_row.get(0), i) != null){
-				_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.getTile(_row.get(0), i).getChar();
+			while(_board.Tile_From_Board(_row.get(0), i) != null){
+				_wordBeingPlayed_0 = _wordBeingPlayed_0 + _board.Tile_From_Board(_row.get(0), i).getChar();
 				if(i == 19)
 					i = -1;
 				i++;
 			}
 			
 			i = _row.get(0);
-			while(_board.getTile(i-1, _col.get(0)) != null){
+			while(_board.Tile_From_Board(i-1, _col.get(0)) != null){
 				i--;
 			}
-			while(_board.getTile(i, _col.get(0)) != null){
-				_wordBeingPlayed_1 = _wordBeingPlayed_1 + _board.getTile(i, _col.get(0)).getChar();
+			while(_board.Tile_From_Board(i, _col.get(0)) != null){
+				_wordBeingPlayed_1 = _wordBeingPlayed_1 + _board.Tile_From_Board(i, _col.get(0)).getChar();
 				if(i == 19)
 					i = -1;
 				i++;
