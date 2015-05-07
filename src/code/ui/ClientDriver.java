@@ -104,5 +104,5 @@ public class ClientDriver {
 		// Connection ready - start up the client!
 		SwingUtilities.invokeLater(new ClientUI(server, hostName, portNumber));
 	}  
-}
-}
+} 
+
