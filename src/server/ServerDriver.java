@@ -70,7 +70,7 @@ public class ServerDriver {
 		System.out.println("Creating remote server object...");
 		IServer stub = null;
 		try {
-			stub = (IServer) UnicastRemoteObject.exportObject(engine, 50000);
+			stub = (IServer) UnicastRemoteObject.exportObject(engine, 50084);
 			System.out.println("Server started normally.");
 		}
 		catch (RemoteException e) {
