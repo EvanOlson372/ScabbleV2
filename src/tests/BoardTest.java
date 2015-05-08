@@ -27,7 +27,7 @@ public class BoardTest {
 	public void addTest(){
 		//test that we can add a tile to a spot
 		Board_030_084 b = new Board_030_084();
-		Tile t = new Tile('y',2);
+		Tile t = new Tile('y',2, 0, 0);
 		b.addTile(t,2,2);
 		assertTrue("I tried to add a tile to the board, but it wasn't there", t==b.getTile(2, 2));
 	}
@@ -35,7 +35,7 @@ public class BoardTest {
 	@Test
 	public void removeTest(){
 		Board_030_084 b = new Board_030_084();
-		Tile tile = new Tile('A', 1);
+		Tile tile = new Tile('A', 1, 0, 0);
 		b.addTile(tile,19,2);
 		Tile temp=b.removeTile(19,2);
 		assertTrue("I tried to remove tile "+tile+" from the board, but instead removed "+temp,tile.equals(temp));
@@ -45,7 +45,7 @@ public class BoardTest {
 	public void emptyAfterRemovalTest(){
 		Board_030_084 b = new Board_030_084();
 		boolean testNull=false;
-		Tile tile = new Tile('z',5);
+		Tile tile = new Tile('z',5, 0, 0);
 		b.addTile(tile,7,7);
 		b.removeTile(7,7);
 		assertTrue("After removing a tile, the board space was not empty", b.getTile(7,7)==null);

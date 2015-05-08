@@ -12,7 +12,7 @@ public class TileTest {
 	@Test
 	public void checkChar(){
 		char expected = 'W';
-		Tile t = new Tile('W',5);
+		Tile t = new Tile('W',5, 0, 0);
 		char actual = t.getChar();
 		assertTrue("I expected the tile's letter to be "+expected+" but instead it is"+actual, expected==actual);
 	}
@@ -21,7 +21,7 @@ public class TileTest {
 	@Test
 	public void checkValue(){
 		int expected = 5;
-		Tile t = new Tile('W',5);
+		Tile t = new Tile('W',5, 0, 0);
 		int actual = t.getValue();
 		assertTrue("I expected the tile's letter to be "+expected+" but instead it is"+actual, expected==actual);
 	}
