@@ -21,7 +21,6 @@ public class Server implements IServer {
 			//_votes = 0;
 			_observers = new ArrayList<IClient>();
 	}
-	@Override
 	public void addIClient(IClient c) throws RemoteException {
 		// TODO Auto-generated method stub
 		
