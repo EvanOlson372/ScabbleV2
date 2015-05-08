@@ -29,7 +29,7 @@ public class Server implements IServer {
 		for (IClient c : _observers) {
 			// Try to call update() on a remote client
 			try {
-				c.update(java.util.Observable o,_dataStruct);
+				c.update(null,_dataStruct);
 			}
 			// If unable, print error message and stack trace, but keep trying with other
 			// clients, which are running on different hosts.
