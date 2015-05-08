@@ -16,14 +16,34 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>DOCUMENTS/Code Critique.pdf</name>
+			<name>DOCUMENTS/Code Critique (1).pdf</name>
 			<type>1</type>
-			<location>C:/Users/Savannah/Documents/Code Critique.pdf</location>
+			<location>/Users/Leo/Downloads/Code Critique (1).pdf</location>
+		</link>
+		<link>
+			<name>DOCUMENTS/Design Document Stage 3.docx</name>
+			<type>1</type>
+			<location>/Users/Leo/Downloads/Design Document Stage 3.docx</location>
+		</link>
+		<link>
+			<name>DOCUMENTS/Technical Guide Stage 3.docx</name>
+			<type>1</type>
+			<location>/Users/Leo/Downloads/Technical Guide Stage 3.docx</location>
+		</link>
+		<link>
+			<name>DOCUMENTS/User Guide - Stage 3.docx</name>
+			<type>1</type>
+			<location>/Users/Leo/Downloads/User Guide - Stage 3.docx</location>
 		</link>
 		<link>
 			<name>DOCUMENTS/User Guide.pdf</name>
 			<type>1</type>
-			<location>C:/Users/Savannah/Documents/UB 6th semester/CSE 116/User Guide.pdf</location>
+			<location>/Users/Leo/Downloads/eclipse/Eclipse.app/Contents/MacOS/C::/Users/Savannah/Documents/UB 6th semester/CSE 116/User Guide.pdf</location>
+		</link>
+		<link>
+			<name>DOCUMENTS/New Team Meeting Notes/Notes-2015-05-04.docx</name>
+			<type>1</type>
+			<location>/Users/Leo/Downloads/Notes-2015-05-04.docx</location>
 		</link>
 	</linkedResources>
 </projectDescription>
